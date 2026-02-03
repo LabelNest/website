@@ -317,11 +317,11 @@ export const BRIEFINGS: Briefing[] = [
 export const TEAM: TeamMember[] = [
   {
     id: 'ankit-suman',
-    name: 'Ankit Suman',
+    name: 'Ankit Kumar Suman',
     role: 'Founder & Lead Architect',
     bio: 'Systems thinker focused on the intersection of data integrity and operational intelligence. Background in building high-scale data processing pipelines.',
     expertise: ['System Design', 'Data Operations', 'Intelligence Architectures'],
-    image: 
+    image: 'AKS'
   }
  
 ];
