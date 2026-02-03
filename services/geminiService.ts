@@ -2,10 +2,18 @@
 import { GoogleGenAI } from "@google/genai";
 import { NESTOR_SYSTEM_INSTRUCTION } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy-init helper to prevent crash if API_KEY is missing during bundle load
+const getAI = () => {
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    throw new Error("API_KEY is not defined in the environment.");
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 export async function chatWithNestor(message: string, history: { role: 'user' | 'assistant', content: string }[]) {
   try {
+    const ai = getAI();
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: [
@@ -25,6 +33,6 @@ export async function chatWithNestor(message: string, history: { role: 'user' | 
     return response.text;
   } catch (error) {
     console.error("Nestor Error:", error);
-    return "I'm having trouble connecting to the system core. Please contact contact@labelnest.in for direct assistance.";
+    return "I'm having trouble connecting to the system core. Please ensure the API_KEY protocol is initialized in your environment settings or contact contact@labelnest.in.";
   }
 }

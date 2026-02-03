@@ -1,0 +1,20 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes materialize {
+  0% { opacity: 0; filter: brightness(2) blur(10px); transform: scale(0.9); }
+  50% { opacity: 0.5; filter: brightness(1.5) blur(5px); }
+  100% { opacity: 1; filter: brightness(1) blur(0); transform: scale(1); }
+}
+
+.animate-materialize {
+  animation: materialize 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}

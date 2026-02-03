@@ -8,15 +8,22 @@ interface NavProps {
 }
 
 const LogoIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
-    <path d="M110 130 V260 H210 Q190 260 170 240 Q150 220 150 200 H110" fill="black"/>
-    <path d="M180 130 L270 260 V150 H310 V300 L220 170 V280 H180 V130Z" fill="#000080"/>
-    <rect x="270" y="110" width="25" height="25" fill="#000080" />
-    <rect x="300" y="110" width="20" height="20" fill="black" />
-    <rect x="285" y="130" width="15" height="15" fill="black" />
-    <rect x="325" y="125" width="20" height="20" fill="#000080" />
-    <rect x="305" y="145" width="15" height="15" fill="#000080" />
-  </svg>
+  <div className="flex flex-col items-center">
+    <svg width="60" height="50" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-auto">
+      {/* Stylized L */}
+      <path d="M110 80 V220 H220 Q200 220 180 200 Q160 180 160 160 H110" fill="black"/>
+      {/* Stylized N */}
+      <path d="M180 80 L270 210 V100 H310 V250 L220 120 V230 H180 V80Z" fill="#000080"/>
+      {/* Pixel Scatter */}
+      <rect x="290" y="60" width="22" height="22" fill="#000080" />
+      <rect x="320" y="60" width="18" height="18" fill="black" />
+      <rect x="305" y="80" width="12" height="12" fill="black" />
+      <rect x="345" y="75" width="18" height="18" fill="#000080" />
+      <rect x="325" y="95" width="12" height="12" fill="#000080" />
+      <rect x="315" y="50" width="10" height="10" fill="black" />
+    </svg>
+    <span className="text-[6px] font-black text-slate-900 tracking-[0.15em] mt-[-5px] uppercase whitespace-nowrap">Data that teaches machines right</span>
+  </div>
 );
 
 const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
@@ -33,12 +40,10 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <div className="flex items-center space-x-2 cursor-pointer group" onClick={() => onNavigate('/')}>
-            <div className="group-hover:scale-110 transition-transform">
-              <LogoIcon />
-            </div>
-            <span className="text-2xl font-black tracking-tighter text-[#000040] leading-none">LabelNest</span>
+        <div className="flex justify-between h-24 items-center">
+          <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => onNavigate('/')}>
+            <LogoIcon />
+            <span className="text-3xl font-black tracking-tighter text-[#000040] leading-none mb-2">LabelNest</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -61,7 +66,7 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
                 {avatar ? (
                   <img src={avatar} alt="Nestor" className="w-full h-full object-cover animate-materialize" />
                 ) : (
-                  <div className="w-full h-full bg-slate-300 animate-pulse"></div>
+                  <div className="w-full h-full bg-slate-300"></div>
                 )}
                 <div className="absolute top-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-slate-50 group-hover:scale-125 transition-transform"></div>
               </div>
@@ -90,7 +95,6 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 space-y-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
           {navLinks.map((link) => (
