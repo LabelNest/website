@@ -322,7 +322,7 @@ export const TEAM: TeamMember[] = [
     bio: 'Systems thinker focused on the intersection of data integrity and operational intelligence. Background in building high-scale data processing pipelines.',
     expertise: ['System Design', 'Data Operations', 'Intelligence Architectures'],
     image: 
-  },
+  }
  
 ];
 
