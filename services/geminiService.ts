@@ -2,20 +2,19 @@
 import { GoogleGenAI } from "@google/genai";
 import { NESTOR_SYSTEM_INSTRUCTION } from "../constants";
 
-// This function acts as a safety barrier. 
-// It only creates the AI instance when actually called, preventing startup crashes.
 const getAI = () => {
   try {
+    // Correctly check for VITE_ prefix required by browser-side environments like Vite/Vercel
     const apiKey = (import.meta as any).env?.VITE_API_KEY || (process as any).env?.VITE_API_KEY || (process as any).env?.API_KEY;
     
     if (!apiKey || apiKey.length < 5) {
-      console.warn("Nestor Protocol Warning: VITE_API_KEY is missing or invalid.");
+      console.warn("Nestor Protocol Warning: API Key protocol not detected.");
       return null;
     }
     
     return new GoogleGenAI({ apiKey });
   } catch (e) {
-    console.error("Nestor Protocol Error: Initialization failed.", e);
+    console.error("Nestor Protocol Error:", e);
     return null;
   }
 };
@@ -24,7 +23,7 @@ export async function chatWithNestor(message: string, history: { role: 'user' | 
   const ai = getAI();
   
   if (!ai) {
-    return "System Core Status: OFFLINE. (Note: The VITE_API_KEY is not being detected by the browser. Please verify Vercel environment settings and ensure you have redeployed the project).";
+    return "System Core Status: OFFLINE. (The VITE_API_KEY protocol is missing. Please verify environment settings and redeploy).";
   }
 
   try {

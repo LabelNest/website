@@ -20,11 +20,15 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
   const [showHandoff, setShowHandoff] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Auto-scroll to bottom when messages or handoff state changes
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      scrollRef.current.scrollTo({
+        top: scrollRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
     }
-  }, [messages, showHandoff]);
+  }, [messages, showHandoff, isLoading]);
 
   const handleSend = async (customMsg?: string) => {
     const userMsg = (customMsg || inputValue).trim();
@@ -67,8 +71,9 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
   return (
     <div className="fixed bottom-8 right-8 z-[60] flex flex-col items-end font-sans">
       {isOpen && (
-        <div className="mb-6 w-96 md:w-[28rem] bg-white rounded-3xl shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-slate-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-8 duration-500 ease-out">
-          <div className="bg-slate-900 text-white p-6 flex items-center space-x-4 border-b border-slate-800">
+        <div className="mb-6 w-96 md:w-[28rem] max-h-[85vh] bg-white rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-slate-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-8 duration-500 ease-out">
+          {/* Header */}
+          <div className="bg-slate-900 text-white p-6 flex items-center space-x-4 border-b border-slate-800 shrink-0">
             <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center font-bold text-sm shadow-xl overflow-hidden border border-white/10">
               {externalAvatar ? (
                 <img src={externalAvatar} alt="Nestor System" className="w-full h-full object-cover animate-materialize" />
@@ -90,9 +95,14 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
             </button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 h-[32rem] overflow-y-auto p-6 space-y-6 bg-slate-50">
+          {/* Messages Area - The Flexible Scrollable Part */}
+          <div 
+            ref={scrollRef} 
+            className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50 overscroll-contain"
+            style={{ scrollBehavior: 'smooth' }}
+          >
             {messages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}>
                 <div className={`max-w-[85%] p-5 rounded-2xl text-[14px] leading-relaxed shadow-sm ${
                   msg.role === 'user' 
                     ? 'bg-slate-900 text-white' 
@@ -128,7 +138,8 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
             )}
           </div>
 
-          <div className="p-6 border-t border-slate-200 bg-white">
+          {/* Footer / Input Area */}
+          <div className="p-6 border-t border-slate-200 bg-white shrink-0">
             <div className="flex flex-wrap gap-2 mb-6">
               {['Products', 'Solutions', 'Talk to the Team'].map(action => (
                 <button
@@ -163,6 +174,7 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
         </div>
       )}
 
+      {/* Launcher Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-20 h-20 bg-slate-900 rounded-[2rem] flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:bg-indigo-600 transition-all transform hover:scale-110 active:scale-95 text-white border-4 border-white group overflow-hidden"

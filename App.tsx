@@ -26,12 +26,12 @@ const App: React.FC = () => {
     };
     window.addEventListener('hashchange', handleHashChange);
     
-    // Materialize Nestor once for the entire session
-    const materialize = async () => {
+    // Load the fixed avatar asset
+    const loadAvatar = async () => {
       const avatar = await generateNestorAvatar();
-      if (avatar) setNestorAvatar(avatar);
+      setNestorAvatar(avatar);
     };
-    materialize();
+    loadAvatar();
 
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
