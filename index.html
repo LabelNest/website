@@ -1,43 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>LabelNest | Data Systems & Intelligence</title>
-    <meta name="description" content="Production-ready B2B platform for data labeling, intelligence systems, and R&D labs. Featuring Nestor, the intelligent system guide.">
-    
+    <meta name="description" content="Production-ready B2B platform for data labeling, intelligence systems, and R&D labs. Featuring Nestor, the intelligent system guide." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind (temporary – OK for now) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global styles -->
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; margin: 0; -webkit-font-smoothing: antialiased; }
-        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        @keyframes materialize {
-            0% { opacity: 0; filter: brightness(2) blur(10px); transform: scale(0.9); }
-            100% { opacity: 1; filter: brightness(1) blur(0); transform: scale(1); }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
         }
-        .animate-materialize { animation: materialize 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-        @keyframes scan-line { 0% { transform: translateY(-100%); } 100% { transform: translateY(1000%); } }
-        .scan-line { height: 2px; width: 100%; background: linear-gradient(to right, transparent, rgba(79, 70, 229, 0.5), transparent); animation: scan-line 4s linear infinite; }
-        @keyframes scan-vertical { 0% { top: -10%; } 100% { top: 110%; } }
-        .animate-scan-v { animation: scan-vertical 4s linear infinite; }
-        @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        @keyframes materialize {
+            0% {
+                opacity: 0;
+                filter: brightness(2) blur(10px);
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                filter: brightness(1) blur(0);
+                transform: scale(1);
+            }
+        }
+        .animate-materialize {
+            animation: materialize 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
-  }
-}
-</script>
+
+    <!-- Import map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+      }
+    }
+    </script>
 </head>
+
 <body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden">
     <div id="root"></div>
+
+    <!-- ✅ THIS IS THE CRITICAL LINE -->
+    <script type="module" src="/src/index.tsx"></script>
 </body>
 </html>
