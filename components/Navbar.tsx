@@ -49,7 +49,7 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
           <div className="hidden md:flex items-center space-x-10">
             {/* System Status Indicator */}
             <button 
-              onClick={() => onNavigate('/status')}
+              onClick={() => onNavigate('/system-control')}
               className="flex items-center space-x-2 bg-slate-100/50 hover:bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 transition-colors group"
             >
               <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
@@ -107,7 +107,7 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
       {isOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
           <div className="space-y-6">
-            <button onClick={() => { onNavigate('/status'); setIsOpen(false); }} className="flex items-center space-x-2 text-[10px] font-black uppercase text-indigo-600 mb-4">
+            <button onClick={() => { onNavigate('/system-control'); setIsOpen(false); }} className="flex items-center space-x-2 text-[10px] font-black uppercase text-indigo-600 mb-4">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <span>System Status Dashboard</span>
             </button>

@@ -1,22 +1,22 @@
 
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import NestorChat from './components/NestorChat';
-import Home from './pages/Home';
-import Products from './pages/Products';
-import Solutions from './pages/Solutions';
-import Labs from './pages/Labs';
-import Briefings from './pages/Briefings';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import Team from './pages/Team';
-import Careers from './pages/Careers';
-import Partnerships from './pages/Partnerships';
-import Pricing from './pages/Pricing';
-import Status from './pages/Status';
-import { generateNestorAvatar } from './services/imageService';
-import { analyticsProtocol } from './services/analyticsService';
-import { submitToGCP } from './services/ingestionService';
+import Navbar from './components/Navbar.tsx';
+import NestorChat from './components/NestorChat.tsx';
+import Home from './pages/Home.tsx';
+import Products from './pages/Products.tsx';
+import Solutions from './pages/Solutions.tsx';
+import Labs from './pages/Labs.tsx';
+import Briefings from './pages/Briefings.tsx';
+import Contact from './pages/Contact.tsx';
+import About from './pages/About.tsx';
+import Team from './pages/Team.tsx';
+import Careers from './pages/Careers.tsx';
+import Partnerships from './pages/Partnerships.tsx';
+import Pricing from './pages/Pricing.tsx';
+import SystemControl from './pages/SystemControl.tsx';
+import { generateNestorAvatar } from './services/imageService.ts';
+import { analyticsProtocol } from './services/analyticsService.ts';
+import { submitToGCP } from './services/ingestionService.ts';
 
 const App: React.FC = () => {
   const [path, setPath] = useState(window.location.hash.replace('#', '') || '/');
@@ -83,7 +83,7 @@ const App: React.FC = () => {
     if (path === '/partnerships') return <Partnerships />;
     if (path === '/pricing') return <Pricing />;
     if (path === '/contact') return <Contact />;
-    if (path === '/status') return <Status />;
+    if (path === '/system-control' || path === '/status') return <SystemControl />;
     
     return (
       <div className="pt-32 pb-20 text-center">
