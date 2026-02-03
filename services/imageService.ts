@@ -2,9 +2,14 @@
 import { GoogleGenAI } from "@google/genai";
 
 const getAI = () => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = (import.meta as any).env?.VITE_API_KEY || (process as any).env?.VITE_API_KEY || (process as any).env?.API_KEY;
   if (!apiKey) return null;
-  return new GoogleGenAI({ apiKey });
+  
+  try {
+    return new GoogleGenAI({ apiKey });
+  } catch (e) {
+    return null;
+  }
 };
 
 export const NESTOR_AVATAR_PROMPT = `
@@ -15,7 +20,7 @@ Palette: Graphite, charcoal, soft white, muted indigo.
 "A silent system analyst observing data flows."
 `;
 
-const CACHE_KEY = 'labelnest_nestor_avatar';
+const CACHE_KEY = 'labelnest_nestor_avatar_v2';
 
 const DEFAULT_AVATAR = `data:image/svg+xml;base64,${btoa(`
 <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,6 +58,7 @@ export async function generateNestorAvatar(): Promise<string | null> {
     }
     return DEFAULT_AVATAR;
   } catch (error) {
+    console.warn("Avatar Gen failed, using default:", error);
     return DEFAULT_AVATAR;
   }
 }
