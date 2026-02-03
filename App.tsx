@@ -78,9 +78,13 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-8 cursor-pointer group" onClick={() => navigate('/')}>
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                <span className="text-white font-black text-lg">LN</span>
-              </div>
+              {/* Reconstructed LN Icon for Footer Consistency */}
+              <svg width="40" height="34" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-auto">
+                <path d="M42 22 V60 C42 75 55 78 75 78 H88 V66 H75 C60 66 54 62 54 50 V22 H42Z" fill="white" />
+                <path d="M58 22 L98 78 H112 V22 H98 V62 L58 22Z" fill="#4F46E5" />
+                <rect x="100" y="8" width="10" height="10" fill="#4F46E5" />
+                <rect x="112" y="12" width="8" height="8" fill="white" />
+              </svg>
               <span className="text-2xl font-black tracking-tighter">LabelNest</span>
             </div>
             <p className="text-slate-400 max-w-sm mb-8 leading-relaxed text-sm font-light">

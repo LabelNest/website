@@ -7,22 +7,30 @@ interface NavProps {
   avatar: string | null;
 }
 
-const LogoIcon = () => (
-  <div className="flex flex-col items-center">
-    <svg width="60" height="50" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-auto">
-      {/* Stylized L */}
-      <path d="M110 80 V220 H220 Q200 220 180 200 Q160 180 160 160 H110" fill="black"/>
-      {/* Stylized N */}
-      <path d="M180 80 L270 210 V100 H310 V250 L220 120 V230 H180 V80Z" fill="#000080"/>
-      {/* Pixel Scatter */}
-      <rect x="290" y="60" width="22" height="22" fill="#000080" />
-      <rect x="320" y="60" width="18" height="18" fill="black" />
-      <rect x="305" y="80" width="12" height="12" fill="black" />
-      <rect x="345" y="75" width="18" height="18" fill="#000080" />
-      <rect x="325" y="95" width="12" height="12" fill="#000080" />
-      <rect x="315" y="50" width="10" height="10" fill="black" />
+const FullLogo = () => (
+  <div className="flex items-center space-x-4 group cursor-pointer select-none">
+    {/* Refined Brand Mark - Precision matched to reference image */}
+    <svg width="60" height="54" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[58px] h-auto overflow-visible transform group-hover:scale-105 transition-all duration-500 ease-out">
+      {/* Black L - High weight with signature sweep */}
+      <path d="M40 25 V68 C40 82 50 85 70 85 H85 V74 H70 C58 74 52 70 52 60 V25 H40Z" fill="black" />
+      
+      {/* Navy N - Sharp diagonal strike */}
+      <path d="M58 25 L102 85 H118 V25 H102 V65 L58 25Z" fill="#000050" />
+      
+      {/* Pixel Burst - Strategic positions from reference */}
+      <rect x="104" y="8" width="11" height="11" fill="#000050" />
+      <rect x="118" y="11" width="9" height="9" fill="black" />
+      <rect x="108" y="22" width="6" height="6" fill="#000050" />
+      <rect x="122" y="24" width="7" height="7" fill="black" opacity="0.6" />
+      <rect x="114" y="32" width="5" height="5" fill="#000050" opacity="0.4" />
+      <rect x="105" y="0" width="7" height="7" fill="black" opacity="0.8" />
+      <rect x="126" y="16" width="5" height="5" fill="#000050" opacity="0.3" />
     </svg>
-    <span className="text-[6px] font-black text-slate-900 tracking-[0.15em] mt-[-5px] uppercase whitespace-nowrap">Data that teaches machines right</span>
+    
+    <div className="flex flex-col -space-y-1.5">
+      <span className="text-[34px] font-black tracking-tighter text-[#000040] leading-none">LabelNest</span>
+      <span className="text-[7.5px] font-black text-slate-900 tracking-[0.22em] mt-2 uppercase whitespace-nowrap">Data that teaches machines right</span>
+    </div>
   </div>
 );
 
@@ -38,20 +46,19 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
-          <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => onNavigate('/')}>
-            <LogoIcon />
-            <span className="text-3xl font-black tracking-tighter text-[#000040] leading-none mb-2">LabelNest</span>
+          <div onClick={() => onNavigate('/')}>
+            <FullLogo />
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <button
                 key={link.path}
                 onClick={() => onNavigate(link.path)}
-                className={`text-[10px] uppercase tracking-[0.2em] font-black transition-all hover:text-indigo-600 ${
+                className={`text-[10px] uppercase tracking-[0.25em] font-black transition-all hover:text-indigo-600 ${
                   currentPath.startsWith(link.path) ? 'text-indigo-600' : 'text-slate-500'
                 }`}
               >
@@ -62,11 +69,11 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
             <div className="h-4 w-px bg-slate-200"></div>
             
             <div className="flex items-center space-x-4 bg-slate-50 p-1.5 pr-4 rounded-full border border-slate-200 group cursor-pointer" onClick={() => onNavigate('/about')}>
-              <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden relative border border-white">
+              <div className="w-8 h-8 rounded-full bg-slate-900 overflow-hidden relative border border-white flex items-center justify-center">
                 {avatar ? (
-                  <img src={avatar} alt="Nestor" className="w-full h-full object-cover animate-materialize" />
+                  <img src={avatar} alt="Nestor" className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full bg-slate-300"></div>
+                  <div className="text-[8px] font-black text-white">LN</div>
                 )}
                 <div className="absolute top-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-slate-50 group-hover:scale-125 transition-transform"></div>
               </div>
@@ -75,7 +82,7 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
 
             <button
               onClick={() => onNavigate('/contact')}
-              className="px-7 py-3 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-xl hover:bg-indigo-600 transition-all shadow-xl shadow-slate-200 transform hover:-translate-y-1"
+              className="px-8 py-3.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.25em] rounded-xl hover:bg-indigo-600 transition-all shadow-xl shadow-slate-200 transform hover:-translate-y-1"
             >
               Initialize
             </button>
@@ -96,29 +103,31 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 space-y-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
-          {navLinks.map((link) => (
+        <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
+          <div className="space-y-6">
+            {navLinks.map((link) => (
+              <button
+                key={link.path}
+                onClick={() => {
+                  onNavigate(link.path);
+                  setIsOpen(false);
+                }}
+                className="block w-full text-left text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-indigo-600"
+              >
+                {link.label}
+              </button>
+            ))}
+            <div className="h-px w-full bg-slate-100"></div>
             <button
-              key={link.path}
               onClick={() => {
-                onNavigate(link.path);
+                onNavigate('/contact');
                 setIsOpen(false);
               }}
-              className="block w-full text-left text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-indigo-600"
+              className="block w-full text-center py-5 bg-slate-900 text-white font-black rounded-xl uppercase tracking-[0.2em] text-[10px]"
             >
-              {link.label}
+              Initialize Connection
             </button>
-          ))}
-          <div className="h-px w-full bg-slate-100"></div>
-          <button
-            onClick={() => {
-              onNavigate('/contact');
-              setIsOpen(false);
-            }}
-            className="block w-full text-center py-5 bg-slate-900 text-white font-black rounded-xl uppercase tracking-[0.2em] text-[10px]"
-          >
-            Initialize Connection
-          </button>
+          </div>
         </div>
       )}
     </nav>

@@ -2,28 +2,20 @@
 import { GoogleGenAI } from "@google/genai";
 import { NESTOR_SYSTEM_INSTRUCTION } from "../constants";
 
+// Correctly initialize GoogleGenAI following mandatory guidelines
 const getAI = () => {
-  try {
-    // Correctly check for VITE_ prefix required by browser-side environments like Vite/Vercel
-    const apiKey = (import.meta as any).env?.VITE_API_KEY || (process as any).env?.VITE_API_KEY || (process as any).env?.API_KEY;
-    
-    if (!apiKey || apiKey.length < 5) {
-      console.warn("Nestor Protocol Warning: API Key protocol not detected.");
-      return null;
-    }
-    
-    return new GoogleGenAI({ apiKey });
-  } catch (e) {
-    console.error("Nestor Protocol Error:", e);
+  if (!process.env.API_KEY) {
+    console.warn("Nestor Protocol Warning: API_KEY protocol not detected in environment.");
     return null;
   }
+  return new GoogleGenAI({ apiKey: process.env.API_KEY });
 };
 
 export async function chatWithNestor(message: string, history: { role: 'user' | 'assistant', content: string }[]) {
   const ai = getAI();
   
   if (!ai) {
-    return "System Core Status: OFFLINE. (The VITE_API_KEY protocol is missing. Please verify environment settings and redeploy).";
+    return "System Core Status: OFFLINE. (The API_KEY protocol is missing. Please verify environment settings and redeploy).";
   }
 
   try {
@@ -43,6 +35,7 @@ export async function chatWithNestor(message: string, history: { role: 'user' | 
       },
     });
 
+    // Directly access text property from GenerateContentResponse as per guidelines
     return response.text;
   } catch (error) {
     console.error("Nestor Request Error:", error);
