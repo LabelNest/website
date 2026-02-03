@@ -333,7 +333,7 @@ export const ALUMNI: TeamMember[] = [
     role: 'NA',
     bio: 'NA',
     expertise: ['NA']
-  },
+  }
 
 ];
 
@@ -348,7 +348,7 @@ export const JOBS: JobOpening[] = [
     type: 'NA',
     location: 'Bangalore',
     applyUrl: 'NA'
-  },
+  }
  
 ];
 
