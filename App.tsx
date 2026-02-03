@@ -13,20 +13,47 @@ import Team from './pages/Team';
 import Careers from './pages/Careers';
 import Partnerships from './pages/Partnerships';
 import Pricing from './pages/Pricing';
+import Status from './pages/Status';
 import { generateNestorAvatar } from './services/imageService';
+import { analyticsProtocol } from './services/analyticsService';
+import { submitToGCP } from './services/ingestionService';
 
 const App: React.FC = () => {
   const [path, setPath] = useState(window.location.hash.replace('#', '') || '/');
   const [nestorAvatar, setNestorAvatar] = useState<string | null>(null);
 
+  // --- GCP ANALYTICS TRACKING ---
+  const trackVisit = async (currentPath: string) => {
+    const identity = analyticsProtocol.getIdentity();
+    const context = await analyticsProtocol.getContext();
+    
+    await submitToGCP({
+      type: 'SYSTEM_TELEMETRY',
+      source: 'PAGE_VISIT',
+      timestamp: new Date().toISOString(),
+      identity: {
+        uid: identity.uid,
+        isUnique: identity.isNew
+      },
+      context: {
+        ...context,
+        path: currentPath
+      }
+    });
+  };
+
   useEffect(() => {
     const handleHashChange = () => {
-      setPath(window.location.hash.replace('#', '') || '/');
+      const newPath = window.location.hash.replace('#', '') || '/';
+      setPath(newPath);
       window.scrollTo(0, 0);
+      trackVisit(newPath); 
     };
+    
     window.addEventListener('hashchange', handleHashChange);
     
-    // Load the fixed avatar asset
+    trackVisit(path);
+
     const loadAvatar = async () => {
       const avatar = await generateNestorAvatar();
       setNestorAvatar(avatar);
@@ -56,6 +83,7 @@ const App: React.FC = () => {
     if (path === '/partnerships') return <Partnerships />;
     if (path === '/pricing') return <Pricing />;
     if (path === '/contact') return <Contact />;
+    if (path === '/status') return <Status />;
     
     return (
       <div className="pt-32 pb-20 text-center">
@@ -78,7 +106,6 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-8 cursor-pointer group" onClick={() => navigate('/')}>
-              {/* Reconstructed LN Icon for Footer Consistency */}
               <svg width="40" height="34" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-auto">
                 <path d="M42 22 V60 C42 75 55 78 75 78 H88 V66 H75 C60 66 54 62 54 50 V22 H42Z" fill="white" />
                 <path d="M58 22 L98 78 H112 V22 H98 V62 L58 22Z" fill="#4F46E5" />

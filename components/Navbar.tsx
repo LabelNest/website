@@ -9,15 +9,9 @@ interface NavProps {
 
 const FullLogo = () => (
   <div className="flex items-center space-x-4 group cursor-pointer select-none">
-    {/* Refined Brand Mark - Precision matched to reference image */}
     <svg width="60" height="54" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[58px] h-auto overflow-visible transform group-hover:scale-105 transition-all duration-500 ease-out">
-      {/* Black L - High weight with signature sweep */}
       <path d="M40 25 V68 C40 82 50 85 70 85 H85 V74 H70 C58 74 52 70 52 60 V25 H40Z" fill="black" />
-      
-      {/* Navy N - Sharp diagonal strike */}
       <path d="M58 25 L102 85 H118 V25 H102 V65 L58 25Z" fill="#000050" />
-      
-      {/* Pixel Burst - Strategic positions from reference */}
       <rect x="104" y="8" width="11" height="11" fill="#000050" />
       <rect x="118" y="11" width="9" height="9" fill="black" />
       <rect x="108" y="22" width="6" height="6" fill="#000050" />
@@ -26,7 +20,6 @@ const FullLogo = () => (
       <rect x="105" y="0" width="7" height="7" fill="black" opacity="0.8" />
       <rect x="126" y="16" width="5" height="5" fill="#000050" opacity="0.3" />
     </svg>
-    
     <div className="flex flex-col -space-y-1.5">
       <span className="text-[34px] font-black tracking-tighter text-[#000040] leading-none">LabelNest</span>
       <span className="text-[7.5px] font-black text-slate-900 tracking-[0.22em] mt-2 uppercase whitespace-nowrap">Data that teaches machines right</span>
@@ -54,6 +47,15 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-10">
+            {/* System Status Indicator */}
+            <button 
+              onClick={() => onNavigate('/status')}
+              className="flex items-center space-x-2 bg-slate-100/50 hover:bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 transition-colors group"
+            >
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-[8px] font-black uppercase tracking-widest text-slate-500 group-hover:text-indigo-600">System OK</span>
+            </button>
+
             {navLinks.map((link) => (
               <button
                 key={link.path}
@@ -105,6 +107,10 @@ const Navbar: React.FC<NavProps> = ({ currentPath, onNavigate, avatar }) => {
       {isOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 shadow-2xl animate-in fade-in slide-in-from-top-4">
           <div className="space-y-6">
+            <button onClick={() => { onNavigate('/status'); setIsOpen(false); }} className="flex items-center space-x-2 text-[10px] font-black uppercase text-indigo-600 mb-4">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span>System Status Dashboard</span>
+            </button>
             {navLinks.map((link) => (
               <button
                 key={link.path}

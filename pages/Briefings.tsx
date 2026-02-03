@@ -1,10 +1,35 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BRIEFINGS } from '../constants';
+import { submitToIngest } from '../services/ingestionService';
 
 const Briefings: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const featured = BRIEFINGS.find(b => b.isFeatured) || BRIEFINGS[0];
   const others = BRIEFINGS.filter(b => b.id !== featured.id);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    const success = await submitToIngest({
+      source: 'SUBSCRIPTION',
+      timestamp: new Date().toISOString(),
+      data: { email }
+    });
+
+    if (success) {
+      setIsSubscribed(true);
+    } else {
+      setError("Subscription link failure. Please retry.");
+    }
+    setIsSubmitting(false);
+  };
 
   return (
     <div className="pt-48 pb-32 bg-white">
@@ -104,16 +129,45 @@ const Briefings: React.FC = () => {
         {/* 📧 SUBSCRIPTION (SOFT CTA) */}
         <section className="mt-48 py-32 bg-slate-50 rounded-[5rem] text-center border border-slate-200 px-4 relative overflow-hidden">
            <div className="max-w-2xl mx-auto relative z-10">
-              <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-8">Intelligence Feed.</h3>
-              <p className="text-xl text-slate-500 font-light leading-relaxed mb-16">
-                Interested in ongoing intelligence updates? Subscribe to receive monthly briefings directly from the system.
-              </p>
-              <form className="flex flex-col sm:flex-row gap-4" onSubmit={e => e.preventDefault()}>
-                <input required type="email" placeholder="work@entity.com" className="flex-grow bg-white border border-slate-200 rounded-2xl px-8 py-5 text-sm outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all shadow-sm" />
-                <button type="submit" className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl text-[10px] uppercase tracking-[0.3em] hover:bg-indigo-600 transition-all shadow-2xl shadow-slate-200">
-                  Subscribe to Briefings
-                </button>
-              </form>
+              {isSubscribed ? (
+                <div className="animate-fade-in">
+                  <h3 className="text-4xl md:text-5xl font-black text-indigo-600 tracking-tighter mb-8">System Subscribed.</h3>
+                  <p className="text-xl text-slate-500 font-light leading-relaxed">You will receive monthly briefings at {email}.</p>
+                </div>
+              ) : (
+                <>
+                  <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-8">Intelligence Feed.</h3>
+                  <p className="text-xl text-slate-500 font-light leading-relaxed mb-16">
+                    Interested in ongoing intelligence updates? Subscribe to receive monthly briefings directly from the system.
+                  </p>
+                  <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubscribe}>
+                    <input 
+                      required 
+                      disabled={isSubmitting}
+                      type="email" 
+                      placeholder="work@entity.com" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-grow bg-white border border-slate-200 rounded-2xl px-8 py-5 text-sm outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all shadow-sm disabled:opacity-50" 
+                    />
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl text-[10px] uppercase tracking-[0.3em] hover:bg-indigo-600 transition-all shadow-2xl shadow-slate-200 disabled:bg-slate-400 flex items-center justify-center space-x-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                           <div className="w-3 h-3 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                           <span>Linking...</span>
+                        </>
+                      ) : (
+                        <span>Subscribe to Briefings</span>
+                      )}
+                    </button>
+                  </form>
+                  {error && <p className="mt-4 text-xs font-black text-red-500 uppercase tracking-widest">{error}</p>}
+                </>
+              )}
            </div>
            <div className="absolute inset-0 opacity-[0.02] pointer-events-none select-none">
               <div className="text-[30rem] font-black text-indigo-600 -translate-y-1/2 -translate-x-1/2 absolute top-1/2 left-1/2">

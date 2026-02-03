@@ -1,12 +1,41 @@
 
 import React, { useState } from 'react';
+import { submitToIngest } from '../services/ingestionService';
 
 const Partnerships: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formState, setFormState] = useState({
+    entityName: '',
+    leadContact: '',
+    email: '',
+    track: 'System R&D (Track 01)',
+    objective: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormState(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError(null);
+
+    const success = await submitToIngest({
+      source: 'PARTNERSHIP',
+      timestamp: new Date().toISOString(),
+      data: formState
+    });
+
+    if (success) {
+      setSubmitted(true);
+    } else {
+      setError("Handshake Protocol Failed. Please retry.");
+    }
+    setIsSubmitting(false);
   };
 
   const scrollToForm = (track?: string) => {
@@ -14,8 +43,7 @@ const Partnerships: React.FC = () => {
     if (form) {
       form.scrollIntoView({ behavior: 'smooth' });
       if (track) {
-        const select = form.querySelector('select');
-        if (select) select.value = track;
+        setFormState(prev => ({ ...prev, track: track }));
       }
     }
   };
@@ -147,30 +175,61 @@ const Partnerships: React.FC = () => {
                    <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" /></svg>
                 </div>
                 <h3 className="text-4xl font-black tracking-tight text-slate-900 mb-6">Protocol Initiated.</h3>
-                <p className="text-slate-500 font-light text-lg">Our partnership desk will review your alliance request and respond within 48 system hours.</p>
+                <p className="text-slate-500 font-light text-lg">Our partnership desk will review your alliance request and respond within 48 hours.</p>
                 <button onClick={() => setSubmitted(false)} className="mt-12 text-indigo-600 font-black text-xs uppercase tracking-widest border-b-2 border-indigo-600 pb-1">Reset Form</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                 <div className="space-y-2">
                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Entity Name</label>
-                   <input required placeholder="Organization Name" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all" />
+                   <input 
+                      name="entityName"
+                      required 
+                      disabled={isSubmitting}
+                      placeholder="Organization Name" 
+                      value={formState.entityName}
+                      onChange={handleInputChange}
+                      className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all disabled:opacity-50" 
+                   />
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                    <div className="space-y-2">
                       <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Lead Contact</label>
-                      <input required placeholder="Full Name" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all" />
+                      <input 
+                        name="leadContact"
+                        required 
+                        disabled={isSubmitting}
+                        placeholder="Full Name" 
+                        value={formState.leadContact}
+                        onChange={handleInputChange}
+                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all disabled:opacity-50" 
+                      />
                    </div>
                    <div className="space-y-2">
                       <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Email Protocol</label>
-                      <input required type="email" placeholder="work@entity.com" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all" />
+                      <input 
+                        name="email"
+                        required 
+                        disabled={isSubmitting}
+                        type="email" 
+                        placeholder="work@entity.com" 
+                        value={formState.email}
+                        onChange={handleInputChange}
+                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all disabled:opacity-50" 
+                      />
                    </div>
                 </div>
 
                 <div className="space-y-2">
                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Partnership Track</label>
-                   <select className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none appearance-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all">
+                   <select 
+                    name="track"
+                    disabled={isSubmitting}
+                    value={formState.track}
+                    onChange={handleInputChange}
+                    className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none appearance-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all disabled:opacity-50"
+                   >
                       <option>System R&D (Track 01)</option>
                       <option>Intelligence Resale (Track 02)</option>
                       <option>Strategic Channel Partner (Track 03)</option>
@@ -181,11 +240,35 @@ const Partnerships: React.FC = () => {
 
                 <div className="space-y-2">
                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Alliance Objective / Referral Details</label>
-                   <textarea rows={4} placeholder="Describe the proposed collaboration or details of the firm you are referring (industry, needs, contact context)..." className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all"></textarea>
+                   <textarea 
+                    name="objective"
+                    required
+                    disabled={isSubmitting}
+                    rows={4} 
+                    placeholder="Describe proposed collaboration or referral details..." 
+                    value={formState.objective}
+                    onChange={handleInputChange}
+                    className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all disabled:opacity-50"
+                   ></textarea>
                 </div>
 
-                <button type="submit" className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl text-[10px] uppercase tracking-[0.3em] hover:bg-indigo-600 transition-all shadow-2xl shadow-slate-100 transform hover:-translate-y-1">
-                  Initialize Alliance Request
+                {error && (
+                  <p className="text-red-500 text-xs font-black uppercase tracking-widest text-center">{error}</p>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl text-[10px] uppercase tracking-[0.3em] hover:bg-indigo-600 transition-all shadow-2xl shadow-slate-100 transform hover:-translate-y-1 disabled:bg-slate-400 disabled:transform-none flex items-center justify-center space-x-3"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                      <span>Initializing Handshake...</span>
+                    </>
+                  ) : (
+                    <span>Initialize Alliance Request</span>
+                  )}
                 </button>
               </form>
             )}

@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { chatWithNestor } from '../services/geminiService';
 import { ChatMessage } from '../types';
+import { submitToIngest } from '../services/ingestionService';
 
 interface NestorChatProps {
   externalAvatar: string | null;
@@ -18,9 +19,10 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showHandoff, setShowHandoff] = useState(false);
+  const [isHandoffSubmitting, setIsHandoffSubmitting] = useState(false);
+  const [handoffForm, setHandoffForm] = useState({ name: '', email: '', message: '' });
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when messages or handoff state changes
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
@@ -57,15 +59,29 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
     }
   };
 
-  const handleHandoffSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleHandoffChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setHandoffForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleHandoffSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    setMessages(prev => [
-      ...prev, 
-      { role: 'assistant', content: 'Handshake complete. The team will follow up shortly at ' + data.email + '. I’ll stay here if you want to explore meanwhile.' }
-    ]);
-    setShowHandoff(false);
+    setIsHandoffSubmitting(true);
+
+    const success = await submitToIngest({
+      source: 'CHAT_HANDOFF',
+      timestamp: new Date().toISOString(),
+      data: handoffForm
+    });
+
+    if (success) {
+      setMessages(prev => [
+        ...prev, 
+        { role: 'assistant', content: 'Handshake complete. The team will follow up shortly at ' + handoffForm.email + '. I’ll stay here if you want to explore meanwhile.' }
+      ]);
+      setShowHandoff(false);
+    }
+    setIsHandoffSubmitting(false);
   };
 
   return (
@@ -95,7 +111,7 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
             </button>
           </div>
 
-          {/* Messages Area - The Flexible Scrollable Part */}
+          {/* Messages Area */}
           <div 
             ref={scrollRef} 
             className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50 overscroll-contain"
@@ -117,11 +133,22 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
               <div className="bg-white p-6 rounded-2xl border border-indigo-200 shadow-xl animate-in fade-in slide-in-from-bottom-4">
                 <h4 className="font-black text-slate-900 text-xs uppercase tracking-widest mb-6">Talk to the Team</h4>
                 <form onSubmit={handleHandoffSubmit} className="space-y-4">
-                  <input name="name" required placeholder="Full Name" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-indigo-500" />
-                  <input name="email" required type="email" placeholder="Work Email" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-indigo-500" />
-                  <textarea name="message" required rows={3} placeholder="Describe your data challenge..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                  <button type="submit" className="w-full bg-indigo-600 text-white font-black py-4 rounded-xl text-xs uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100">
-                    Initialize Handoff
+                  <input name="name" required disabled={isHandoffSubmitting} placeholder="Full Name" value={handoffForm.name} onChange={handleHandoffChange} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50" />
+                  <input name="email" required disabled={isHandoffSubmitting} type="email" placeholder="Work Email" value={handoffForm.email} onChange={handleHandoffChange} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50" />
+                  <textarea name="message" required disabled={isHandoffSubmitting} rows={3} placeholder="Describe your data challenge..." value={handoffForm.message} onChange={handleHandoffChange} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"></textarea>
+                  <button 
+                    type="submit" 
+                    disabled={isHandoffSubmitting}
+                    className="w-full bg-indigo-600 text-white font-black py-4 rounded-xl text-xs uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 disabled:bg-slate-400 flex items-center justify-center space-x-2"
+                  >
+                    {isHandoffSubmitting ? (
+                      <>
+                        <div className="w-3 h-3 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                        <span>Initializing...</span>
+                      </>
+                    ) : (
+                      <span>Initialize Handoff</span>
+                    )}
                   </button>
                 </form>
               </div>
