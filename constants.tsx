@@ -159,7 +159,7 @@ export const TEAM: TeamMember[] = [
     name: 'Phalachandra Udupa',
     role: 'Data & Annotation Intern',
     bio: 'I am working as a Data Research and Annotation intern. I collect data from the different sources and further research about it for the correctness of the data collected.',
-    expertise: ['Data Collection', 'Image Analysis', 'Microsoft SharePoint'],
+    expertise: ['Data Collection', 'Python Programming', 'Computer Vision'],
     linkedin: 'https://www.linkedin.com/in/phalachandra/'
   },
   {
