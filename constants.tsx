@@ -110,7 +110,7 @@ export const TEAM: TeamMember[] = [
     id: 'ankit-kumar-suman',
     name: 'Ankit Kumar Suman',
     role: 'Founder & Director',
-    bio: 'Ankit Suman founded LabelNest to solve the structural gaps in data trust, bringing extensive experience in private market research and large-scale operations.',
+    bio: 'Founded LabelNest to address structural gaps in data trust and intelligence systems. Brings deep experience across private market research, large-scale data operations, and system design, with a focus on building reliable, scalable data platforms that combine human expertise with automation.',
     expertise: ['System Architecture', 'Intelligence Strategy', 'Leadership'],
     linkedin: 'https://www.linkedin.com/in/ankit-kumar-suman-29159b146/'
   },
@@ -118,7 +118,7 @@ export const TEAM: TeamMember[] = [
     id: 'muskaan-grover',
     name: 'Muskaan Grover',
     role: 'Associate Project Manager',
-    bio: 'I am an Associate Project Manager working in a full Project Manager role, leading across multi-workflow annotation and evaluation projects. I specialize in structured execution, streamlined operations, and coordinating large teams across multiple workflows. With a strong technical foundation, I ensure quality-driven delivery and smooth project management end to end.',
+    bio: 'Leads complex, multi-workflow data projects with a strong focus on execution rigor, operational clarity, and quality outcomes. Experienced in coordinating large teams, streamlining processes, and ensuring reliable delivery across annotation and evaluation programs.',
     expertise: ['Operations Management', 'Team Coordination', 'Quality Assurance'],
     linkedin: 'https://www.linkedin.com/in/muskaan0026/'
   },
@@ -126,7 +126,7 @@ export const TEAM: TeamMember[] = [
     id: 'himani-bhatt',
     name: 'Himani Bhatt',
     role: 'Analyst - Project Management',
-    bio: 'I am an Analyst Project Manager at LabelNest, responsible for driving strategic collaborations and expanding the company\'s partner network. I work closely with vendors and companies to initiate meaningful conversations. With a strong focus on communication, execution, and relationship management, I aim to create opportunities that deliver clear value for both partners and the organization.',
+    bio: 'Works at the intersection of partnerships, communication, and execution to build meaningful external relationships. Focused on initiating high-value conversations, managing stakeholders, and creating collaboration opportunities that deliver mutual value.',
     expertise: ['Strategic Outreach', 'Stakeholder Management', 'Partnership Development'],
     linkedin: 'https://www.linkedin.com/in/himani-bhatt-98b7a0261/'
   },
@@ -134,7 +134,7 @@ export const TEAM: TeamMember[] = [
     id: 'srishti-shiyal',
     name: 'Srishti Shiyal',
     role: 'HR Analyst - I',
-    bio: 'Srishti is an experienced HR professional specializing in recruitment, talent acquisition, and people operations. With an MBA in HR and Finance, she brings a strong people-first approach to building high-performing teams.',
+    bio: 'Brings a people-first approach to building structured and scalable teams. Experienced across recruitment, talent acquisition, and people operations, with a strong foundation in creating processes that support long-term organizational growth.',
     expertise: ['Recruitment', 'People Operations', 'HRMS Management'],
     linkedin: 'https://www.linkedin.com/in/srishti5291/'
   },
@@ -142,7 +142,7 @@ export const TEAM: TeamMember[] = [
     id: 'suganya-gautam',
     name: 'Suganya Gautam',
     role: 'HR Analyst - I',
-    bio: 'HR Analyst-I with hands-on experience in HR operations, onboarding, stakeholder management, and people data management. I am contributing to structured and scalable HR processes at LabelNest.',
+	bio: 'Contributes to building structured and efficient people processes across onboarding, operations, and internal coordination. Focused on documentation, stakeholder alignment, and ensuring smooth execution of HR workflows.',
     expertise: ['Onboarding', 'Process Documentation', 'Stakeholder Management'],
     linkedin: 'https://www.linkedin.com/in/suganya-gautam-a37b0262/'
   },
@@ -150,7 +150,7 @@ export const TEAM: TeamMember[] = [
     id: 'sumedha-pandey',
     name: 'Sumedha Pandey',
     role: 'HR Analyst - I',
-    bio: 'HR Analyst-I at LabelNest, working across HR operations and internal systems to support structure people processes in a fast-growing organization. Interested in building efficient, people-first HR frameworks that scale with the business.',
+	bio: 'Supports internal systems and people processes with an emphasis on structure, clarity, and scalability. Interested in designing efficient, human-centric frameworks that evolve alongside fast-growing organizations.',
     expertise: ['Internal Systems', 'HR Process Management', 'Support Frameworks'],
     linkedin: 'https://www.linkedin.com/in/sumedha-pandey/'
   },
@@ -158,7 +158,7 @@ export const TEAM: TeamMember[] = [
     id: 'phalachandra-udupa',
     name: 'Phalachandra Udupa',
     role: 'Data & Annotation Intern',
-    bio: 'I am working as a Data Research and Annotation intern. I collect data from the different sources and further research about it for the correctness of the data collected.',
+	bio: 'Works across data collection, research, and validation to ensure accuracy and reliability of datasets. Brings hands-on experience in sourcing data from multiple channels and validating it through structured research and analysis.',
     expertise: ['Data Collection', 'Python Programming', 'Computer Vision'],
     linkedin: 'https://www.linkedin.com/in/phalachandra/'
   },
@@ -166,7 +166,7 @@ export const TEAM: TeamMember[] = [
     id: 'suhas-bhat',
     name: 'Suhas Bhat',
     role: 'Data Research Intern',
-    bio: 'I am a motivated AI & Data Science professional currently pursuing my M.Tech, with strong expertise in image processing, machine learning, and deep learning. I have hands-on experience in developing AI-based models for image analysis, computer vision, and data-driven applications using Python and deep learning frameworks.',
+	bio: 'Brings strong technical depth in machine learning, deep learning, and computer vision. Experienced in building data-driven and AI-based solutions for image analysis and applied research using Python and modern ML frameworks.',
     expertise: ['Machine Learning', 'Deep Learning', 'Python Programming'],
     linkedin: 'https://www.linkedin.com/in/suhas-bhat-7a616322a/'
   },
@@ -174,7 +174,7 @@ export const TEAM: TeamMember[] = [
     id: 'prajwal-pb',
     name: 'Prajwal PB',
     role: 'Data Annotation Specialist',
-    bio: 'I am a Data Annotation Specialist & Quality Operations professional with 5.5+ years of experience delivering high-accuracy datasets for autonomous driving, ADAS, and mobility AI systems. My strengths lie in process design, quality governance, and people leadership, enabling me to bridge execution and strategy.',
+	bio: 'Specializes in delivering high-accuracy datasets for advanced AI systems, particularly in mobility and autonomous domains. Experienced in quality governance, process design, and leading teams to bridge execution with long-term data strategy.',
     expertise: ['Mobility AI', 'ADAS Data Strategy', 'Quality Governance'],
     linkedin: 'https://www.linkedin.com/in/prajwal-pb-6a0637225/'
   },
@@ -182,7 +182,7 @@ export const TEAM: TeamMember[] = [
     id: 'shubham-singh',
     name: 'Shubham Singh',
     role: 'Junior Coordinator',
-    bio: 'Junior Coordinator supporting delivery and programs at LabelNest with a focus on project logistics and operational support.',
+	bio: 'Specializes in delivering high-accuracy datasets for advanced AI systems, particularly in mobility and autonomous domains. Experienced in quality governance, process design, and leading teams to bridge execution with long-term data strategy.',
     expertise: ['Program Delivery', 'Logistics Coordination', 'Operational Support'],
     linkedin: 'https://www.linkedin.com/in/shubham-singh/'
   },
@@ -190,7 +190,7 @@ export const TEAM: TeamMember[] = [
     id: 'maybin-k-uthuppan',
     name: 'MAYBIN K UTHUPPAN',
     role: 'Agronomy Research Analyst',
-    bio: 'I am an Agronomist with a Master\'s degree in Agriculture (Agronomy) and professional experience across agricultural education, research, and practical crop production systems. I am passionate about advancing sustainable agriculture through research and data-driven decision making.',
+	bio: 'Supports delivery and program execution through coordination, logistics, and operational assistance. Contributes to keeping projects organized, on track, and aligned with execution priorities.',
     expertise: ['Agronomy Research', 'Systems Training', 'Knowledge Transfer'],
     linkedin: 'https://www.linkedin.com/in/maybin-k-uthuppan-835320282/'
   },
@@ -198,7 +198,7 @@ export const TEAM: TeamMember[] = [
     id: 'robin-joshi',
     name: 'Robin Joshi',
     role: 'Data Annotation Specialist',
-    bio: 'Hi my name is Robin and I am a US Healthcare Specialist with over 3 years of experience in Revenue Cycle Management (RCM), specializing in charge posting, patient demographics, and denial analysis. I have a strong command of CPT, ICD-10, and HCPCS coding standards.',
+	bio: 'Experienced in US healthcare data operations with a strong command of revenue cycle workflows and medical coding standards. Specializes in data accuracy, compliance, and analytical support across healthcare datasets.',
     expertise: ['Healthcare RCM', 'Denial Analysis', 'Medical Coding Compliance'],
     linkedin: 'https://www.linkedin.com/in/robin-joshi-1275451b5/'
   }
