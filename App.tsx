@@ -13,47 +13,21 @@ import Team from './pages/Team.tsx';
 import Careers from './pages/Careers.tsx';
 import Partnerships from './pages/Partnerships.tsx';
 import Pricing from './pages/Pricing.tsx';
-import SystemControl from './pages/SystemControl.tsx';
 import { generateNestorAvatar } from './services/imageService.ts';
-import { analyticsProtocol } from './services/analyticsService.ts';
-import { submitToGCP } from './services/ingestionService.ts';
 
 const App: React.FC = () => {
   const [path, setPath] = useState(window.location.hash.replace('#', '') || '/');
   const [nestorAvatar, setNestorAvatar] = useState<string | null>(null);
-
-  // --- GCP ANALYTICS TRACKING ---
-  const trackVisit = async (currentPath: string) => {
-    const identity = analyticsProtocol.getIdentity();
-    const context = await analyticsProtocol.getContext();
-    
-    await submitToGCP({
-      type: 'SYSTEM_TELEMETRY',
-      source: 'PAGE_VISIT',
-      timestamp: new Date().toISOString(),
-      identity: {
-        uid: identity.uid,
-        isUnique: identity.isNew
-      },
-      context: {
-        ...context,
-        path: currentPath
-      }
-    });
-  };
 
   useEffect(() => {
     const handleHashChange = () => {
       const newPath = window.location.hash.replace('#', '') || '/';
       setPath(newPath);
       window.scrollTo(0, 0);
-      trackVisit(newPath); 
     };
     
     window.addEventListener('hashchange', handleHashChange);
     
-    trackVisit(path);
-
     const loadAvatar = async () => {
       const avatar = await generateNestorAvatar();
       setNestorAvatar(avatar);
@@ -83,7 +57,6 @@ const App: React.FC = () => {
     if (path === '/partnerships') return <Partnerships />;
     if (path === '/pricing') return <Pricing />;
     if (path === '/contact') return <Contact />;
-    if (path === '/system-control' || path === '/status') return <SystemControl />;
     
     return (
       <div className="pt-32 pb-20 text-center">

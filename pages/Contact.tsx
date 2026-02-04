@@ -24,28 +24,19 @@ const Contact: React.FC = () => {
 
     const success = await submitToIngest(
       {
-        source: 'CONTACT',
-        timestamp: new Date().toISOString(),
-        data: formState
+        name: formState.name,
+        email: formState.email,
+        message: `[${formState.subject}] ${formState.message}`,
+        type: 'contact'
       },
       (newStage) => setStage(newStage)
     );
 
     if (success) {
-      setTimeout(() => setSubmitted(true), 1500);
+      setSubmitted(true);
     } else {
       setError("Protocol Interrupted. Please check connection and retry.");
       setStage('IDLE');
-    }
-  };
-
-  const getStageLabel = () => {
-    switch (stage) {
-      case 'INGESTING': return 'Initializing Ingestion Protocol...';
-      case 'STREAMING_BIGQUERY': return 'Streaming to GCP BigQuery (Telemetry Hub)...';
-      case 'RELAYING_EMAIL': return 'Relaying Notification to contact@labelnest.in...';
-      case 'COMPLETE': return 'Protocol Handshake Complete.';
-      default: return 'Initializing...';
     }
   };
 
@@ -101,15 +92,15 @@ const Contact: React.FC = () => {
                 <p className="text-slate-600">One of our intelligence specialists will reach out within 24 hours.</p>
                 <button onClick={() => { setSubmitted(false); setStage('IDLE'); }} className="mt-8 text-indigo-600 font-bold">Send another message</button>
               </div>
-            ) : stage !== 'IDLE' ? (
+            ) : stage === 'SUBMITTING' ? (
               <div className="py-24 text-center">
                  <div className="mb-12 flex justify-center space-x-4">
-                    <div className={`w-3 h-3 rounded-full ${stage === 'INGESTING' ? 'bg-indigo-600 animate-pulse' : 'bg-slate-200'}`}></div>
-                    <div className={`w-3 h-3 rounded-full ${stage === 'STREAMING_BIGQUERY' ? 'bg-indigo-600 animate-pulse' : 'bg-slate-200'}`}></div>
-                    <div className={`w-3 h-3 rounded-full ${stage === 'RELAYING_EMAIL' ? 'bg-indigo-600 animate-pulse' : 'bg-slate-200'}`}></div>
+                    <div className="w-3 h-3 rounded-full bg-indigo-600 animate-pulse"></div>
+                    <div className="w-3 h-3 rounded-full bg-indigo-600 animate-pulse delay-100"></div>
+                    <div className="w-3 h-3 rounded-full bg-indigo-600 animate-pulse delay-200"></div>
                  </div>
-                 <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-900 mb-4">{getStageLabel()}</h3>
-                 <p className="text-xs text-slate-400 font-mono">GCP_REGION: asia-south1 | TYPE: FORM_DATA</p>
+                 <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-900 mb-4">Establishing Handshake Protocol...</h3>
+                 <p className="text-xs text-slate-400 font-mono">ENCRYPTING_PAYLOAD | TARGET: contact@labelnest.in</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -171,7 +162,7 @@ const Contact: React.FC = () => {
                 )}
 
                 <button 
-                  className="w-full bg-indigo-600 text-white font-black py-4 rounded-lg hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 flex items-center justify-center space-x-3"
+                  className="w-full bg-slate-900 text-white font-black py-4 rounded-lg hover:bg-indigo-600 transition-all shadow-lg shadow-slate-100 flex items-center justify-center space-x-3"
                 >
                   <span>Send Message</span>
                 </button>

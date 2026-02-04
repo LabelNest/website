@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { getTeamMemberAvatar } from '../services/imageService';
 
 interface DossierSectionProps {
   title: string;
@@ -180,9 +181,8 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
       {/* 5️⃣ FOUNDER */}
       <DossierSection title="Founder" bg="bg-slate-50" icon={<FounderIcon />}>
          <div className="flex flex-col md:flex-row gap-16 items-start">
-            <div className="w-32 h-32 md:w-48 md:h-48 bg-slate-900 rounded-[2rem] flex-shrink-0 flex items-center justify-center text-white text-5xl font-black shadow-2xl overflow-hidden relative border border-white/10">
-               AKS
-               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <div className="w-32 h-32 md:w-48 md:h-48 bg-slate-900 rounded-[2rem] flex-shrink-0 flex items-center justify-center overflow-hidden border border-white/10 relative">
+               <img src={getTeamMemberAvatar('ankit-kumar-suman', 'Leadership & Strategy')} alt="Ankit Suman" className="w-full h-full object-cover" />
             </div>
             <div className="space-y-10">
                <h3 className="text-5xl font-black text-slate-900 tracking-tighter">Ankit Suman</h3>

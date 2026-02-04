@@ -18,9 +18,10 @@ const Briefings: React.FC = () => {
     setError(null);
 
     const success = await submitToIngest({
-      source: 'SUBSCRIPTION',
-      timestamp: new Date().toISOString(),
-      data: { email }
+      name: 'Briefing Subscriber',
+      email: email,
+      message: `Newsletter Subscription Request for ${email}`,
+      type: 'subscription'
     });
 
     if (success) {

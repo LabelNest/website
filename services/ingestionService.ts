@@ -1,102 +1,97 @@
 
 /**
- * LabelNest Ingestion Service (GCP Edition)
- * Centralized protocol for transmitting form data and telemetry to GCP Cloud Functions.
+ * LabelNest Ingestion Service (EmailJS Edition)
+ * Centralized protocol for transmitting form data via EmailJS.
+ * TARGET: contact@labelnest.in
  */
 
-import { analyticsProtocol } from './analyticsService';
+const EMAILJS_SERVICE_ID = 'lni_form'; 
+const EMAILJS_PUBLIC_KEY = 'iaohPHTZhQwZr5JG6';
+const EMAILJS_TEMPLATE_ID = '1';
 
-// Placeholder for GCP Cloud Function endpoint
-const GCP_INGEST_ENDPOINT = 'https://asia-south1-labelnest-production.cloudfunctions.net/telemetry';
+export type IngestType = 'general' | 'contact' | 'partnership' | 'subscription' | 'chat_handoff';
 
-export type IngestType = 'FORM_SUBMISSION' | 'SYSTEM_TELEMETRY';
-
-export interface IngestionPayload {
-  source: 'CONTACT' | 'PARTNERSHIP' | 'SUBSCRIPTION' | 'CHAT_HANDOFF' | 'PAGE_VISIT';
+export interface EmailPayload {
+  name: string;
+  email: string;
+  message: string;
   type: IngestType;
-  timestamp: string;
-  identity: {
-    uid: string;
-    isUnique: boolean;
-  };
-  context: Record<string, any>;
-  data?: Record<string, any>;
 }
 
-export type IngestStage = 'IDLE' | 'INGESTING' | 'STREAMING_BIGQUERY' | 'RELAYING_EMAIL' | 'COMPLETE' | 'ERROR';
+export type IngestStage = 'IDLE' | 'SUBMITTING' | 'COMPLETE' | 'ERROR';
 
 /**
- * Standard telemetry transmission to GCP.
+ * Transmit form data directly to EmailJS REST API.
  */
-export async function submitToGCP(payload: IngestionPayload): Promise<boolean> {
-  const isTelemetry = payload.type === 'SYSTEM_TELEMETRY';
-  const prefix = isTelemetry ? '[GCP-TELEMETRY]' : '[GCP-INGEST]';
-  
-  if (!isTelemetry) {
-    console.log(`${prefix} Streaming event to BigQuery via Cloud Functions...`, payload);
-  }
-  
+export async function submitToEmailJS(payload: EmailPayload): Promise<boolean> {
   try {
-    const response = await fetch(GCP_INGEST_ENDPOINT, {
+    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-LabelNest-Source': payload.source
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        service_id: EMAILJS_SERVICE_ID,
+        template_id: EMAILJS_TEMPLATE_ID,
+        user_id: EMAILJS_PUBLIC_KEY,
+        template_params: {
+          name: payload.name,
+          email: payload.email,
+          message: payload.message,
+          type: payload.type
+        }
+      }),
     });
 
     if (!response.ok) {
-      throw new Error(`GCP Error: Status ${response.status}`);
+      const errorText = await response.text();
+      console.error(`EmailJS Protocol Error: ${errorText}`);
+      return false;
     }
 
     return true;
   } catch (error) {
-    const delay = isTelemetry ? 50 : 800; 
-    await new Promise(resolve => setTimeout(resolve, delay));
-    return true; 
+    console.error("EmailJS Connection Interrupted:", error);
+    return false;
   }
 }
 
 /**
- * High-level ingestion for form submissions with stage callbacks.
+ * Unified ingestion for all website forms.
  */
 export async function submitToIngest(
   options: { 
-    source: IngestionPayload['source'], 
-    timestamp: string, 
-    data: Record<string, any> 
+    name: string,
+    email: string,
+    message: string,
+    type: IngestType 
   },
   onStageChange?: (stage: IngestStage) => void
 ): Promise<boolean> {
-  onStageChange?.('INGESTING');
+  onStageChange?.('SUBMITTING');
   
-  const identity = analyticsProtocol.getIdentity();
-  const context = await analyticsProtocol.getContext();
+  // Artificial delay for high-end "system processing" feel
+  await new Promise(resolve => setTimeout(resolve, 1200));
 
-  await new Promise(resolve => setTimeout(resolve, 800));
-  onStageChange?.('STREAMING_BIGQUERY');
-  
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  onStageChange?.('RELAYING_EMAIL');
-
-  const result = await submitToGCP({
-    source: options.source,
-    type: 'FORM_SUBMISSION',
-    timestamp: options.timestamp,
-    identity: {
-      uid: identity.uid,
-      isUnique: identity.isNew
-    },
-    context: context,
-    data: options.data
+  const success = await submitToEmailJS({
+    name: options.name,
+    email: options.email,
+    message: options.message,
+    type: options.type
   });
 
-  if (result) {
+  if (success) {
     onStageChange?.('COMPLETE');
+    return true;
   } else {
     onStageChange?.('ERROR');
+    return false;
   }
+}
 
-  return result;
+/**
+ * Legacy GCP function shell (Decommissioned)
+ */
+export async function submitToGCP(payload: any): Promise<boolean> {
+  return true; // No-op
 }

@@ -1,67 +1,93 @@
 
 /**
- * Nestor Identity Service - LOCKED PROTOCOL
- * Established a permanent, high-fidelity brand asset for the Nestor Core.
- * This design matches the dark, faceted robotic head with cyan glowing accents.
+ * LabelNest Identity Service - DETERMINISTIC AVATAR PROTOCOL
+ * Generates fixed, unique facial brand assets for all personnel.
  */
+
+const COLORS = {
+  LEADERSHIP: { base: '#080C14', accent: '#FFD700', bg: '#1A1F26' },
+  DELIVERY: { base: '#0F172A', accent: '#6366F1', bg: '#1E293B' },
+  PEOPLE: { base: '#0D1117', accent: '#EC4899', bg: '#1E1B4B' },
+  DATA: { base: '#020617', accent: '#00D1FF', bg: '#0F172A' },
+  DOMAIN: { base: '#064E3B', accent: '#10B981', bg: '#064E3B' },
+};
+
+function getHash(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return Math.abs(hash);
+}
+
+const THOR_PROTOCOL = `
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#080C14"/>
+  <path d="M200 60 L120 120 L120 280 L200 340 L280 280 L280 120 Z" fill="#1A1F26" stroke="#FFD700" stroke-width="4"/>
+  <path d="M200 60 V140 M120 120 L160 160 M280 120 L240 160" stroke="#FFD700" stroke-width="6" stroke-linecap="round" opacity="0.8">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+  </path>
+  <circle cx="200" cy="210" r="40" stroke="#FFD700" stroke-width="2" fill="#FFD700" fill-opacity="0.1"/>
+  <path d="M180 210 H220 M200 190 V230" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M150 160 Q200 130 250 160" stroke="#FFD700" stroke-width="1" opacity="0.3"/>
+</svg>`;
+
+function generateFaceSVG(id: string, dept: string): string {
+  const hash = getHash(id);
+  const theme = dept.includes('Leadership') ? COLORS.LEADERSHIP :
+                dept.includes('Delivery') ? COLORS.DELIVERY :
+                dept.includes('People') ? COLORS.PEOPLE :
+                dept.includes('Data') ? COLORS.DATA : COLORS.DOMAIN;
+
+  // Eye styles
+  const eyeVariants = [
+    `<rect x="150" y="170" width="25" height="4" rx="1" fill="${theme.accent}"/> <rect x="225" y="170" width="25" height="4" rx="1" fill="${theme.accent}"/>`,
+    `<circle cx="165" cy="175" r="5" fill="${theme.accent}"/> <circle cx="235" cy="175" r="5" fill="${theme.accent}"/>`,
+    `<path d="M145 175 Q165 160 185 175" stroke="${theme.accent}" stroke-width="3" fill="none"/> <path d="M215 175 Q235 160 255 175" stroke="${theme.accent}" stroke-width="3" fill="none"/>`,
+  ];
+
+  // Jaw/Face structure
+  const faceVariants = [
+    `<path d="M120 150 Q120 320 200 340 Q280 320 280 150" fill="${theme.bg}" stroke="${theme.accent}" stroke-width="1"/>`,
+    `<path d="M140 120 L120 200 L200 320 L280 200 L260 120 Z" fill="${theme.bg}" stroke="${theme.accent}" stroke-width="1"/>`,
+    `<circle cx="200" cy="200" r="120" fill="${theme.bg}" stroke="${theme.accent}" stroke-width="1"/>`,
+  ];
+
+  // Feature detail (deterministic circuitry/marks)
+  const detailVariants = [
+    `<path d="M180 240 H220" stroke="${theme.accent}" stroke-width="2" stroke-linecap="round"/>`,
+    `<path d="M200 220 V260" stroke="${theme.accent}" stroke-width="1" opacity="0.5"/>`,
+    `<circle cx="200" cy="245" r="3" fill="${theme.accent}"/>`,
+  ];
+
+  return `
+  <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="400" fill="${theme.base}"/>
+    <g opacity="0.8">
+      ${faceVariants[hash % faceVariants.length]}
+      ${eyeVariants[hash % eyeVariants.length]}
+      ${detailVariants[hash % detailVariants.length]}
+    </g>
+    <rect x="0" y="0" width="400" height="400" stroke="${theme.accent}" stroke-width="0.5" opacity="0.1"/>
+  </svg>`;
+}
+
+export function getTeamMemberAvatar(id: string, department: string): string {
+  if (id === 'ankit-kumar-suman') {
+    return `data:image/svg+xml;base64,${btoa(THOR_PROTOCOL)}`;
+  }
+  return `data:image/svg+xml;base64,${btoa(generateFaceSVG(id, department))}`;
+}
 
 const NESTOR_LOCKED_AVATAR = `data:image/svg+xml;base64,${btoa(`
 <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark Circular Background -->
   <circle cx="200" cy="200" r="180" fill="#080C14"/>
-  <circle cx="200" cy="200" r="180" fill="url(#bg_gradient)" fill-opacity="0.5"/>
-  
-  <!-- Robotic Head Structure (Base) -->
   <path d="M200 60 C140 60 110 100 110 170 C110 230 140 290 200 320 C260 290 290 230 290 170 C290 100 260 60 200 60Z" fill="#1A1F26"/>
-  
-  <!-- Faceted Details & Shadows -->
-  <path d="M200 60 L140 100 L110 170 L200 190 V60Z" fill="#12161D"/>
-  <path d="M200 320 L140 280 L110 170 L200 190 V320Z" fill="#0D1117"/>
-  
-  <!-- Central Face Plate -->
-  <path d="M160 140 L200 130 L240 140 L230 240 L200 260 L170 240 L160 140Z" fill="#242A33" stroke="#00D1FF" stroke-width="0.5" stroke-opacity="0.3"/>
-  
-  <!-- Cyan Glowing Circuitry Lines (Forehead) -->
-  <path d="M165 90 L180 110 L200 105 L220 110 L235 90" stroke="#00D1FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
-  </path>
-  
-  <!-- Cyan Glowing Circuitry Lines (Cheeks) -->
-  <path d="M130 180 L145 220 L160 240" stroke="#00D1FF" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  <path d="M270 180 L255 220 L240 240" stroke="#00D1FF" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  
-  <!-- The Eyes (High Intensity Cyan Slits) -->
-  <rect x="145" y="155" width="40" height="6" rx="1" fill="#00D1FF" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-  </rect>
-  <rect x="215" y="155" width="40" height="6" rx="1" fill="#00D1FF" filter="url(#glow)">
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-  </rect>
-  
-  <!-- The Mouth (Subtle Cyan Slit) -->
-  <rect x="185" y="245" width="30" height="3" rx="1.5" fill="#00D1FF" opacity="0.9">
-    <animate attributeName="width" values="25;35;25" dur="4s" repeatCount="indefinite" />
-    <animate attributeName="x" values="187.5;182.5;187.5" dur="4s" repeatCount="indefinite" />
-  </rect>
-  
-  <!-- Neck Details -->
-  <path d="M170 310 V360 M200 320 V370 M230 310 V360" stroke="#00D1FF" stroke-width="1" stroke-opacity="0.2"/>
-  
-  <defs>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <radialGradient id="bg_gradient" cx="200" cy="200" r="180" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#00D1FF" stop-opacity="0.1"/>
-      <stop offset="1" stop-color="#080C14" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+  <rect x="145" y="155" width="40" height="6" rx="1" fill="#00D1FF"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" /></rect>
+  <rect x="215" y="155" width="40" height="6" rx="1" fill="#00D1FF"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" /></rect>
 </svg>
 `)}`;
 
 export async function generateNestorAvatar(): Promise<string | null> {
-  // Returns the locked brand asset immediately.
-  // This matches the specific robotic head with blue glowing accents.
   return NESTOR_LOCKED_AVATAR;
 }

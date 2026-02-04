@@ -3,7 +3,6 @@
   "name": "LabelNest - Data Systems & Intelligence",
   "description": "Learn about LabelNest — a data systems and intelligence company focused on quality, traceability, and real-world data integrity.",
   "requestFramePermissions": [
-    "microphone",
-    "geolocation"
+    "microphone"
   ]
 }

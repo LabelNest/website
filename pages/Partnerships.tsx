@@ -25,9 +25,10 @@ const Partnerships: React.FC = () => {
     setError(null);
 
     const success = await submitToIngest({
-      source: 'PARTNERSHIP',
-      timestamp: new Date().toISOString(),
-      data: formState
+      name: formState.leadContact,
+      email: formState.email,
+      message: `Entity: ${formState.entityName} | Track: ${formState.track} | Objective: ${formState.objective}`,
+      type: 'partnership'
     });
 
     if (success) {

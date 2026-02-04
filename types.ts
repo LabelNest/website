@@ -69,6 +69,17 @@ export interface TeamMember {
   linkedin?: string;
 }
 
+export interface Alumnus {
+  name: string;
+  role: string;
+  impact: string;
+}
+
+export interface Fellow {
+  name: string;
+  department: 'NestLabs' | 'NestTech';
+}
+
 export interface JobOpening {
   id: string;
   title: string;

@@ -69,9 +69,10 @@ const NestorChat: React.FC<NestorChatProps> = ({ externalAvatar }) => {
     setIsHandoffSubmitting(true);
 
     const success = await submitToIngest({
-      source: 'CHAT_HANDOFF',
-      timestamp: new Date().toISOString(),
-      data: handoffForm
+      name: handoffForm.name,
+      email: handoffForm.email,
+      message: handoffForm.message,
+      type: 'chat_handoff'
     });
 
     if (success) {
