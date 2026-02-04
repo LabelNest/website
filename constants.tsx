@@ -233,13 +233,15 @@ export const LAB_SERVICES: LabService[] = [
 
 export const LABS: LabExperiment[] = [
   {
-    id: 'exp-1',
-    category: 'Experiments',
-    title: 'Linkage Discovery in Private Equity',
-    status: 'Alpha',
-    readTime: '12 min',
-    excerpt: 'Using graph neural networks to identify non-obvious relationship patterns in deal flow.',
-    description: 'This experiment evaluates the reliability of identifying indirect influence patterns between private equity partners and asset managers using proprietary linkage weights rather than standard job-title mappings.'
+    id: 'meth-1',
+    category: 'Methodologies',
+    title: 'The Paradox of Perfect Data',
+    status: 'Public',
+    readTime: '15 min',
+    excerpt: 'Exploring why 100% accuracy is often a false signal in complex datasets.',
+    problemStatement: 'Naive data providers claim 100% accuracy, but complex, real-world data is inherently messy and changing.',
+    reasoning: 'At LabelNest, we believe 100% accuracy is a marketing term, not a technical state. We prioritize confidence intervals and verified states over binary correctness.',
+    implications: 'Systems must be built to handle uncertainty and error propagation rather than assuming perfect ingestion.'
   },
   {
     id: 'meth-2',
@@ -264,7 +266,6 @@ export const BRIEFINGS: Briefing[] = [
     tags: ['Private Equity', 'Infrastructure', 'Finance'],
     readTime: '10 min',
     isFeatured: true
-
   }
 ];
 
@@ -275,10 +276,13 @@ export const TEAM: TeamMember[] = [
     role: 'Founder & Director',
     bio: 'Systems thinker focused on the intersection of data integrity and operational intelligence. Background in building high-scale data processing pipelines.',
     expertise: ['System Design', 'Data Operations', 'Intelligence Architectures'],
-	LinkedIn: 'www.linkedin.com/in/ankit-kumar-suman-29159b146/'
+    linkedin: 'https://www.linkedin.com/in/ankit-kumar-suman-29159b146/'
   }
 ];
 
+export const ALUMNI: TeamMember[] = [];
+
+export const ALUMNI_PDF_URL = '#';
 
 export const JOBS: JobOpening[] = [
   {
@@ -311,9 +315,7 @@ KNOWLEDGE BASE:
 - Solutions: Built using LabelNest products + Labs operations (Contacts, Market, Research-as-a-Service, Sales & GTM Intelligence).
 - Labs (/labs): Human-in-the-loop execution layer (Annotation, Transcription, Translation, Research, Extraction). 
   - This is where human expertise meets structured systems.
-  - Also hosts R&D experiments and methodologies.
 - Briefings (/briefings): Structured intelligence notes, research summaries, and market observations.
-- Partnerships: System R&D, Intelligence Resale, Strategic Referrals, Referral Protocol (Lifecycle Rewards).
 
 RESTRICTIONS:
 - DO NOT provide pricing. Route to contact@labelnest.in.

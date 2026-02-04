@@ -22,7 +22,7 @@ const Careers: React.FC = () => {
           <div className="lg:col-span-2 space-y-8">
             <div className="flex items-center justify-between border-b border-slate-200 pb-8">
               <h2 className="text-3xl font-black tracking-tight text-slate-900">Active Protocols</h2>
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{JOBS.length} Positions Open</span>
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{JOBS.length} Position Open</span>
             </div>
             
             {JOBS.map((role) => (
@@ -48,8 +48,6 @@ const Careers: React.FC = () => {
                   {role.applyUrl && (
                     <a 
                       href={role.applyUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
                       className="inline-flex items-center space-x-4 px-8 py-4 bg-slate-900 text-white rounded-2xl group/btn hover:bg-indigo-600 transition-all shadow-xl shadow-slate-200"
                     >
                       <span className="text-[10px] font-black uppercase tracking-[0.2em]">Apply Now</span>
@@ -70,10 +68,10 @@ const Careers: React.FC = () => {
                 <p className="text-slate-400 mb-10 text-lg font-light leading-relaxed max-w-xl">
                   Don't see a specific role? We're always looking for exceptional talent in data science, engineering, and domain-specific research.
                 </p>
-                <button className="text-indigo-400 font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-colors flex items-center space-x-3">
-                   <span>careers@labelnest.in</span>
+                <a href="mailto:hr@labelnest.in" className="text-indigo-400 font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-colors flex items-center space-x-3">
+                   <span>hr@labelnest.in</span>
                    <span className="text-lg">&rarr;</span>
-                </button>
+                </a>
               </div>
               <div className="absolute right-0 bottom-0 opacity-[0.03] select-none pointer-events-none transform translate-x-1/4 translate-y-1/4">
                  <span className="text-[20rem] font-black tracking-tighter">JOIN</span>

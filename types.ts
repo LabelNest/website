@@ -66,13 +66,14 @@ export interface TeamMember {
   bio: string;
   expertise: string[];
   image?: string;
+  linkedin?: string;
 }
 
 export interface JobOpening {
   id: string;
   title: string;
   department: string;
-  complexity: 'Low' | 'Moderate' | 'High' | 'Critical';
+  complexity: 'Low' | 'Medium' | 'Moderate' | 'High' | 'Critical';
   type: 'Full-time' | 'Remote' | 'Hybrid' | 'Contract';
   location: string;
   applyUrl?: string;
