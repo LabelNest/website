@@ -242,26 +242,6 @@ export const LABS: LabExperiment[] = [
     description: 'This experiment evaluates the reliability of identifying indirect influence patterns between private equity partners and asset managers using proprietary linkage weights rather than standard job-title mappings.'
   },
   {
-    id: 'exp-2',
-    category: 'Experiments',
-    title: 'Multimodal Extraction Reliability',
-    status: 'Beta',
-    readTime: '8 min',
-    excerpt: 'Benchmarking deterministic extraction against probabilistic LLM outputs for financial filings.',
-    description: 'An exploration of how hybrid extraction models—combining fixed OCR patterns with LLM-guided field identification—perform in high-variance document structures like tax filings and local registry records.'
-  },
-  {
-    id: 'meth-1',
-    category: 'Methodologies',
-    title: 'The Paradox of Perfect Data',
-    status: 'Public',
-    readTime: '15 min',
-    excerpt: 'Exploring why 100% accuracy is often a false signal in complex datasets.',
-    problemStatement: 'Naive data providers claim 100% accuracy, but complex, real-world data is inherently messy and changing.',
-    reasoning: 'At LabelNest, we believe 100% accuracy is a marketing term, not a technical state. We prioritize confidence intervals and verified states over binary correctness.',
-    implications: 'Systems must be built to handle uncertainty and error propagation rather than assuming perfect ingestion.'
-  },
-  {
     id: 'meth-2',
     category: 'Methodologies',
     title: 'When Automation Stops',
@@ -284,110 +264,33 @@ export const BRIEFINGS: Briefing[] = [
     tags: ['Private Equity', 'Infrastructure', 'Finance'],
     readTime: '10 min',
     isFeatured: true
-  },
-  {
-    id: 'br-2',
-    title: 'ESG Data Divergence in Healthcare',
-    summary: 'Observations on the growing gap between public reporting and operational reality in healthcare entity compliance.',
-    date: 'Jul 28, 2024',
-    scope: 'Sector',
-    tags: ['ESG', 'Healthcare', 'Compliance'],
-    readTime: '7 min'
-  },
-  {
-    id: 'br-3',
-    title: 'Decision-Maker Mandate Shifts',
-    summary: 'Thematic research on how C-suite responsibilities are evolving within Global 2000 firms following recent regulatory changes.',
-    date: 'Jul 15, 2024',
-    scope: 'Theme',
-    tags: ['Account Intelligence', 'GTM', 'Corporate'],
-    readTime: '12 min'
-  },
-  {
-    id: 'br-4',
-    title: 'India Energy Grid Landscape',
-    summary: 'Intelligence note on firm-level ownership mapping for emerging renewable energy grid projects in Southern India.',
-    date: 'Jun 30, 2024',
-    scope: 'Market',
-    tags: ['Energy', 'India', 'Renewables'],
-    readTime: '9 min'
+
   }
 ];
 
 export const TEAM: TeamMember[] = [
   {
     id: 'ankit-suman',
-    name: 'Ankit Suman',
-    role: 'Founder & Lead Architect',
+    name: 'Ankit Kumar Suman',
+    role: 'Founder & Director',
     bio: 'Systems thinker focused on the intersection of data integrity and operational intelligence. Background in building high-scale data processing pipelines.',
     expertise: ['System Design', 'Data Operations', 'Intelligence Architectures'],
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&h=256&auto=format&fit=crop'
-  },
-  {
-    id: 'research-ops',
-    name: 'Intelligence Ops',
-    role: 'Core Team',
-    bio: 'Our data operations team consists of domain specialists across healthcare, finance, and infrastructure who ensure the precision of every LabelNest output.',
-    expertise: ['Domain Research', 'Entity Resolution', 'QA Frameworks'],
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256&h=256&auto=format&fit=crop'
+    image:
+	LinkedIn: www.linkedin.com/in/ankit-kumar-suman-29159b146/
+
   }
 ];
 
-export const ALUMNI: TeamMember[] = [
-  {
-    id: 'legacy-1',
-    name: 'Sarah Chen',
-    role: 'Former Lead Data Scientist',
-    bio: 'Pioneered the early algorithmic structures for NestLens entity resolution.',
-    expertise: ['Graph Theory', 'NLP Architecture']
-  },
-  {
-    id: 'legacy-2',
-    name: 'Marcus Thorne',
-    role: 'Operations Consultant',
-    bio: 'Architected the initial human-in-the-loop workflows for Annonest v1.0.',
-    expertise: ['Ops Optimization', 'Workflow Design']
-  }
-];
-
-export const ALUMNI_PDF_URL = 'https://labelnest.in/assets/legacy-personnel-dossier.pdf';
 
 export const JOBS: JobOpening[] = [
   {
     id: 'job-1',
-    title: 'Data Systems Architect',
-    department: 'Engineering',
-    complexity: 'High',
-    type: 'Hybrid',
-    location: 'Bangalore',
-    applyUrl: 'mailto:careers@labelnest.in?subject=Application: Data Systems Architect'
-  },
-  {
-    id: 'job-2',
-    title: 'Senior Research Analyst',
-    department: 'Intelligence',
-    complexity: 'Moderate',
-    type: 'Full-time',
-    location: 'Remote',
-    applyUrl: 'mailto:careers@labelnest.in?subject=Application: Senior Research Analyst'
-  },
-  {
-    id: 'job-3',
-    title: 'QA Specialist',
-    department: 'Operations',
-    complexity: 'Critical',
-    type: 'Full-time',
-    location: 'Bangalore',
-    applyUrl: 'mailto:careers@labelnest.in?subject=Application: QA Specialist'
-  },
-  {
-    id: 'job-4',
-    title: 'Full Stack Engineer',
-    department: 'Product',
-    complexity: 'High',
+    title: 'Data Research',
+    department: 'Data',
+    complexity: 'Medium',
     type: 'Remote',
-    location: 'Global',
-    applyUrl: 'https://linkedin.com/company/labelnest'
+    location: 'Anywhere in India',
+    applyUrl: 'mailto:hr@labelnest.in?subject=Application: Data Research'
   }
 ];
 
