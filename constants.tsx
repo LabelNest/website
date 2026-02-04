@@ -275,9 +275,7 @@ export const TEAM: TeamMember[] = [
     role: 'Founder & Director',
     bio: 'Systems thinker focused on the intersection of data integrity and operational intelligence. Background in building high-scale data processing pipelines.',
     expertise: ['System Design', 'Data Operations', 'Intelligence Architectures'],
-    image:
-	LinkedIn: www.linkedin.com/in/ankit-kumar-suman-29159b146/
-
+	LinkedIn: 'www.linkedin.com/in/ankit-kumar-suman-29159b146/'
   }
 ];
 
