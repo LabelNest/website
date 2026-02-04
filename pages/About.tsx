@@ -65,7 +65,6 @@ const HowWeWorkIcon = () => (
 const FounderIcon = () => (
   <svg className="w-10 h-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path className="animate-fade-in" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-    <path className="animate-scan-v absolute top-0 w-full" stroke="currentColor" strokeWidth={0.5} d="M5 14h14" />
   </svg>
 );
 
@@ -76,11 +75,12 @@ const VisionIcon = () => (
   </svg>
 );
 
-const NestorIcon = () => (
-  <svg className="w-10 h-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <rect className="animate-brain-blink" x="4" y="4" width="16" height="16" rx="4" strokeWidth={1.5} />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 9h6v6H9z" />
-    <path className="animate-data-flow" d="M12 4v2m0 14v2M4 12h2m14 0h2" />
+const RoboticChipIcon = () => (
+  <svg className="w-10 h-10 text-indigo-600" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="32" height="32" rx="6" stroke="currentColor" strokeWidth="2.5" />
+    <rect x="18" y="18" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="2.5" />
+    <circle cx="24" cy="24" r="3" fill="currentColor" />
+    <path d="M24 8V4M24 44V40M8 24H4M44 24H40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
   </svg>
 );
 
@@ -151,11 +151,6 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
               <p className="text-slate-600 text-sm leading-relaxed">Quality breaks down when systems are built without accountability or auditability.</p>
             </div>
           </div>
-          <div className="pt-12 border-t border-slate-200">
-            <p className="text-xl md:text-2xl text-slate-800 font-light leading-relaxed max-w-2xl">
-              LabelNest exists to solve these structural problems — by combining human expertise with intelligent systems that make data explainable, monitorable, and resolvable.
-            </p>
-          </div>
         </div>
       </DossierSection>
 
@@ -165,7 +160,6 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
           <div className="max-w-2xl">
             <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-8">Our approach is built around systems, not shortcuts.</h3>
           </div>
-          
           <div className="space-y-4">
             {[
               "Human + automation workflows — never automation alone",
@@ -180,10 +174,6 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
               </div>
             ))}
           </div>
-
-          <p className="text-xl text-slate-500 font-light italic bg-slate-50 p-8 rounded-2xl border border-dashed border-slate-200">
-            This philosophy is embedded across our platforms — from annotation and intelligence to monitoring and resolution.
-          </p>
         </div>
       </DossierSection>
 
@@ -191,7 +181,7 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
       <DossierSection title="Founder" bg="bg-slate-50" icon={<FounderIcon />}>
          <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="w-32 h-32 md:w-48 md:h-48 bg-slate-900 rounded-[2rem] flex-shrink-0 flex items-center justify-center text-white text-5xl font-black shadow-2xl overflow-hidden relative border border-white/10">
-               AS
+               AKS
                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
             <div className="space-y-10">
@@ -200,11 +190,8 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
                  <p>
                    LabelNest was founded by Ankit Suman, who has worked extensively in large-scale data operations and private market research environments.
                  </p>
-                 <p>
-                   Through years of hands-on experience with complex datasets, quality frameworks, and operational systems, he saw recurring failures in how data was collected, labeled, monitored, and trusted over time.
-                 </p>
                  <p className="text-slate-900 font-medium">
-                   LabelNest was created to address these gaps — not with one-off services, but with durable systems and intelligence platforms that reflect how data actually behaves in the real world.
+                   LabelNest was created to address the gaps in how data is collected, labeled, and trusted over time—not with one-off services, but with durable systems that reflect real-world data behavior.
                  </p>
                </div>
             </div>
@@ -215,53 +202,77 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
       <DossierSection title="Vision" icon={<VisionIcon />}>
         <div className="bg-slate-900 rounded-[4rem] p-16 md:p-24 text-white relative overflow-hidden group hover:shadow-2xl hover:shadow-indigo-500/10 transition-shadow">
           <div className="relative z-10 max-w-3xl">
-            <h3 className="text-4xl md:text-5xl font-black tracking-tight mb-12">Building a long-term ecosystem.</h3>
+            <h3 className="text-4xl md:text-5xl font-black tracking-tight mb-12 text-white">Building a long-term ecosystem.</h3>
             <div className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed space-y-10">
               <p>
                 LabelNest is building a long-term ecosystem of data systems and intelligence platforms that organizations can rely on as their data complexity grows.
               </p>
               <p>
-                Our focus is on scalable infrastructure, responsible experimentation, and creating opportunities for skilled data work beyond traditional hubs — while remaining globally relevant in quality and execution.
+                Our focus is on scalable infrastructure, responsible experimentation, and creating opportunities for skilled data work beyond traditional hubs.
               </p>
             </div>
           </div>
           <div className="absolute -right-20 -bottom-20 opacity-10 select-none pointer-events-none transition-transform duration-1000 group-hover:scale-110">
-             <span className="text-[20rem] font-black tracking-tighter">CORE</span>
+             <span className="text-[20rem] font-black tracking-tighter text-white">CORE</span>
           </div>
         </div>
       </DossierSection>
 
-      {/* 7️⃣ NESTOR */}
-      <DossierSection title="Nestor" bg="bg-slate-900" className="text-white" icon={<NestorIcon />}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="relative z-10">
-            <div className="space-y-10 text-slate-300 text-xl md:text-2xl leading-relaxed font-light max-w-xl">
-              <p className="font-medium text-white">
-                Nestor is the system intelligence layer behind LabelNest.
+      {/* 7️⃣ NESTOR - HIGH FIDELITY REDESIGN */}
+      <section className="bg-slate-950 py-40 px-4 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+          
+          {/* Left: Robotic Chip Icon in White Square */}
+          <div className="lg:w-1/4 flex justify-start lg:justify-center">
+             <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-[2.5rem] flex items-center justify-center shadow-[0_0_50px_rgba(79,70,229,0.3)] animate-materialize">
+                <RoboticChipIcon />
+             </div>
+          </div>
+
+          {/* Center: Brand Content */}
+          <div className="lg:w-2/4 text-white space-y-12 relative z-10">
+            <div className="space-y-6">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight text-white animate-fade-in-up">
+                <span className="text-white">Nestor</span> is the system intelligence layer behind LabelNest.
+              </h2>
+              <div className="h-1.5 w-16 bg-indigo-500 rounded-full"></div>
+            </div>
+            
+            <div className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed space-y-8 animate-fade-in-up delay-200">
+              <p>
+                It represents how we think about data — structured, traceable, and grounded in real-world practice. 
               </p>
               <p>
-                It represents how we think about data — structured, traceable, and grounded in real-world practice. Nestor is not a chatbot or a sales assistant, but a guide designed to explain our systems, methodologies, and approach to intelligence.
+                <span className="text-white font-bold">Nestor</span> is not a chatbot or a sales assistant, but a guide designed to explain our systems, methodologies, and approach to intelligence.
               </p>
-              <div className="pt-8 border-t border-white/10">
-                 <span className="text-[10px] font-black tracking-widest text-indigo-400 uppercase bg-indigo-400/10 px-4 py-2 rounded-lg">
-                   System intelligence shaped by real-world data practice.
-                 </span>
-              </div>
+            </div>
+
+            <div className="pt-8 border-t border-white/10 animate-fade-in-up delay-400">
+              <span className="text-[10px] font-black tracking-[0.4em] text-indigo-400 uppercase">
+                System Intelligence Protocol v2.5
+              </span>
             </div>
           </div>
-          
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-[120px] animate-pulse"></div>
-              <div className="w-full h-full rounded-[4rem] bg-slate-800 border-4 border-white/10 shadow-2xl overflow-hidden relative group">
-                {avatar && <img src={avatar} alt="Nestor Core" className="w-full h-full object-cover animate-materialize" />}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
-                <div className="scan-line absolute top-0 left-0 opacity-40"></div>
-              </div>
-            </div>
+
+          {/* Right: High Fidelity Robotic Avatar */}
+          <div className="lg:w-1/4 flex justify-center lg:justify-end">
+             <div className="relative w-72 h-72 md:w-80 md:h-80">
+                <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-[100px] animate-pulse"></div>
+                <div className="w-full h-full rounded-[4.5rem] bg-slate-900 border-4 border-white/5 shadow-2xl overflow-hidden relative group">
+                   {avatar && <img src={avatar} alt="Nestor Core" className="w-full h-full object-cover animate-materialize" />}
+                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                   {/* Scan bar effect */}
+                   <div className="absolute top-0 left-0 w-full h-px bg-cyan-400/30 animate-scan-v"></div>
+                </div>
+             </div>
           </div>
         </div>
-      </DossierSection>
+
+        {/* Backdrop branding */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] text-[25rem] font-black text-white pointer-events-none select-none">
+           NESTOR
+        </div>
+      </section>
 
       {/* 8️⃣ CTA */}
       <section className="py-48 px-4 bg-white text-center border-t border-slate-100">
@@ -270,12 +281,12 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
           <p className="text-2xl md:text-3xl text-slate-500 mb-16 font-light leading-relaxed max-w-3xl mx-auto">
             If you’re exploring complex data problems and need systems that scale with integrity, we’d be glad to talk.
           </p>
-          <a 
-            href="#/contact"
+          <button 
+            onClick={() => window.location.hash = '/contact'}
             className="inline-flex items-center px-16 py-8 bg-indigo-600 text-white font-black rounded-3xl hover:bg-indigo-700 transition-all shadow-2xl shadow-indigo-100 transform hover:-translate-y-2 uppercase tracking-widest text-xs"
           >
             Contact Us
-          </a>
+          </button>
         </div>
       </section>
     </div>
