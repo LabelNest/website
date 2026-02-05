@@ -107,8 +107,8 @@ export const BRIEFINGS: Briefing[] = [
 
 export const TEAM: TeamMember[] = [
   {
-    id: 'ankit-kumar-suman',
-    name: 'Ankit Kumar Suman',
+    id: 'ankit-suman',
+    name: 'Ankit Suman',
     role: 'Founder & Director',
     bio: 'Founded LabelNest to address structural gaps in data trust and intelligence systems. Brings deep experience across private market research, large-scale data operations, and system design, with a focus on building reliable, scalable data platforms that combine human expertise with automation.',
     expertise: ['System Architecture', 'Intelligence Strategy', 'Leadership'],
@@ -136,7 +136,7 @@ export const TEAM: TeamMember[] = [
     role: 'HR Analyst - I',
     bio: 'Brings a people-first approach to building structured and scalable teams. Experienced across recruitment, talent acquisition, and people operations, with a strong foundation in creating processes that support long-term organizational growth.',
     expertise: ['Recruitment', 'People Operations', 'HRMS Management'],
-    linkedin: 'https://www.linkedin.com/in/srishti5291/'
+    linkedin: 'https://www.linkedin.com/in/srishtis291/'
   },
   {
     id: 'suganya-gautam',
