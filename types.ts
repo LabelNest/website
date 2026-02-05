@@ -47,11 +47,17 @@ export interface Briefing {
   id: string;
   title: string;
   summary: string;
+  content?: string;
   date: string;
   scope: string; // Market / Sector / Theme
   tags: string[];
   readTime: string;
   isFeatured?: boolean;
+  author?: {
+    name: string;
+    role: string;
+    department: string;
+  };
 }
 
 export interface ChatMessage {
