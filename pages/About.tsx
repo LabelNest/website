@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getTeamMemberAvatar } from '../services/imageService';
 
 interface DossierSectionProps {
@@ -86,6 +86,9 @@ const RoboticChipIcon = () => (
 );
 
 const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
+  const [founderImgError, setFounderImgError] = useState(false);
+  const founderAvatar = getTeamMemberAvatar('ankit-kumar-suman', 'Leadership & Strategy');
+
   useEffect(() => {
     document.title = "About LabelNest | Data Systems & Intelligence";
   }, []);
@@ -182,7 +185,16 @@ const About: React.FC<{ avatar: string | null }> = ({ avatar }) => {
       <DossierSection title="Founder" bg="bg-slate-50" icon={<FounderIcon />}>
          <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="w-32 h-32 md:w-48 md:h-48 bg-slate-900 rounded-[2rem] flex-shrink-0 flex items-center justify-center overflow-hidden border border-white/10 relative">
-               <img src={getTeamMemberAvatar('ankit-kumar-suman', 'Leadership & Strategy')} alt="Ankit Suman" className="w-full h-full object-cover" />
+               {founderAvatar && !founderImgError ? (
+                 <img 
+                  src={founderAvatar} 
+                  alt="Ankit Suman" 
+                  onError={() => setFounderImgError(true)}
+                  className="w-full h-full object-cover" 
+                 />
+               ) : (
+                 <span className="text-4xl font-black text-white tracking-widest opacity-80">AS</span>
+               )}
             </div>
             <div className="space-y-10">
                <h3 className="text-5xl font-black text-slate-900 tracking-tighter">Ankit Suman</h3>
