@@ -119,46 +119,93 @@ const App: React.FC = () => {
               data problems.
             </p>
 
-            {/* CONTACT BLOCK */}
-            <div className="space-y-6 mb-10">
-              <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
-                  Email Protocol
-                </div>
-                <a
-                  href="mailto:contact@labelnest.in"
-                  className="text-white font-semibold hover:text-indigo-400"
-                >
-                  contact@labelnest.in
-                </a>
-              </div>
+     {/* CONTACT BLOCK — PREMIUM */}
+<div className="space-y-6 mb-10">
 
-              <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
-                  Global HQ
-                </div>
-                <div className="text-white font-semibold">
-                  Bangalore, India
-                </div>
-              </div>
+  {/* EMAIL */}
+  <div className="flex items-start space-x-4">
+    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+      <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M3 8l9 6 9-6M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" />
+      </svg>
+    </div>
+    <div>
+      <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">
+        Email Protocol
+      </div>
+      <a
+        href="mailto:contact@labelnest.in"
+        className="text-white font-semibold hover:text-indigo-400 transition-colors"
+      >
+        contact@labelnest.in
+      </a>
+    </div>
+  </div>
 
-              <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">
-                  Digital Presence
-                </div>
-                <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/company/labelnest-india/" target="_blank" rel="noreferrer">LinkedIn</a>
-                  <a href="https://www.instagram.com/labelnestindia" target="_blank" rel="noreferrer">Instagram</a>
-                  <a href="https://x.com/LabelNestAI" target="_blank" rel="noreferrer">X</a>
-                </div>
-              </div>
-            </div>
+  {/* LOCATION */}
+  <div className="flex items-start space-x-4">
+    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+      <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M19.5 8c0 7-7.5 11-7.5 11S4.5 15 4.5 8a7.5 7.5 0 1115 0z" />
+      </svg>
+    </div>
+    <div>
+      <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">
+        Global HQ
+      </div>
+      <div className="text-white font-semibold">
+        Bangalore, India
+      </div>
+    </div>
+  </div>
 
-            <div className="flex space-x-6 text-xs font-black uppercase tracking-widest text-slate-500">
-              <span className="text-indigo-500">Status: Nominal</span>
-              <span>v2.5.4</span>
-            </div>
-          </div>
+  {/* DIGITAL PRESENCE */}
+  <div className="flex items-start space-x-4">
+    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+      <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M13.828 10.172a4 4 0 010 5.656m-1.414-1.414a2 2 0 000-2.828M10.172 13.828a4 4 0 010-5.656M15 7h.01M9 7h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+    <div>
+      <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">
+        Digital Presence
+      </div>
+      <div className="flex space-x-3">
+        <a
+          href="https://www.linkedin.com/company/labelnest-india/"
+          target="_blank"
+          rel="noreferrer"
+          className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-600 transition-all"
+        >
+          in
+        </a>
+        <a
+          href="https://www.instagram.com/labelnestindia"
+          target="_blank"
+          rel="noreferrer"
+          className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all"
+        >
+          ig
+        </a>
+        <a
+          href="https://x.com/LabelNestAI"
+          target="_blank"
+          rel="noreferrer"
+          className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-slate-700 hover:border-slate-700 transition-all"
+        >
+          x
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 
           {/* CAPABILITIES */}
           <div>
