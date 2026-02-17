@@ -8,7 +8,7 @@ const partners = [
     role: "Data Partner – Research & Annotation",
     description:
       "KG Genius Labs supports LabelNest across data collection, structured research, and annotation workflows as part of our extended execution ecosystem.",
-    website: "https://kggeniuslabs.com"
+    website: "https://kggeniuslabs.com",
 	logo: "/partners/kggeniuslabs_logo.png"
   }
 ];
