@@ -24,8 +24,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleHashChange = () => {
-      const newPath = window.location.hash.replace('#', '') || '/';
-      setPath(newPath);
+      setPath(window.location.hash.replace('#', '') || '/');
       window.scrollTo(0, 0);
     };
 
@@ -63,16 +62,13 @@ const App: React.FC = () => {
 
     return (
       <div className="pt-32 pb-20 text-center">
-        <h1 className="text-3xl font-bold mb-4 uppercase tracking-widest font-black">
+        <h1 className="text-3xl font-black uppercase tracking-widest mb-4">
           System Interrupt
         </h1>
-        <p className="text-slate-600">
-          The protocol '{path}' is not recognized by the current version.
+        <p className="text-slate-600 mb-6">
+          The protocol '{path}' is not recognized.
         </p>
-        <button
-          onClick={() => navigate('/')}
-          className="mt-8 text-indigo-600 font-bold underline"
-        >
+        <button onClick={() => navigate('/')} className="text-indigo-600 underline">
           Return to Core
         </button>
       </div>
@@ -93,123 +89,71 @@ const App: React.FC = () => {
 
           {/* BRAND + CONTACT */}
           <div className="col-span-1 md:col-span-2">
-            <div
-              className="flex items-center space-x-3 mb-8 cursor-pointer"
-              onClick={() => navigate('/')}
-            >
-              <svg
-                width="40"
-                height="34"
-                viewBox="0 0 120 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-10 h-auto"
-              >
-                <path d="M42 22 V60 C42 75 55 78 75 78 H88 V66 H75 C60 66 54 62 54 50 V22 H42Z" fill="white" />
-                <path d="M58 22 L98 78 H112 V22 H98 V62 L58 22Z" fill="#4F46E5" />
-                <rect x="100" y="8" width="10" height="10" fill="#4F46E5" />
-                <rect x="112" y="12" width="8" height="8" fill="white" />
-              </svg>
+            <div className="flex items-center space-x-3 mb-8 cursor-pointer" onClick={() => navigate('/')}>
               <span className="text-2xl font-black tracking-tighter">LabelNest</span>
             </div>
 
-            <p className="text-slate-400 max-w-sm mb-10 leading-relaxed text-sm font-light">
-              LabelNest building the infrastructure of intelligence. We combine expert
-              human reasoning with deterministic automation to solve the world's hardest
-              data problems.
+            <p className="text-slate-400 max-w-sm mb-10 text-sm">
+              LabelNest building the infrastructure of intelligence through expert human
+              reasoning and deterministic automation.
             </p>
 
-     {/* CONTACT BLOCK — PREMIUM */}
-<div className="space-y-6 mb-10">
+            {/* CONTACT BLOCK */}
+            <div className="space-y-6 mb-10">
 
-  {/* EMAIL */}
-  <div className="flex items-start space-x-4">
-    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-      <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M3 8l9 6 9-6M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" />
-      </svg>
-    </div>
-    <div>
-      <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">
-        Email Protocol
-      </div>
-      <a
-        href="mailto:contact@labelnest.in"
-        className="text-white font-semibold hover:text-indigo-400 transition-colors"
-      >
-        contact@labelnest.in
-      </a>
-    </div>
-  </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  📧
+                </div>
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+                    Email Protocol
+                  </div>
+                  <a href="mailto:contact@labelnest.in" className="text-white font-semibold">
+                    contact@labelnest.in
+                  </a>
+                </div>
+              </div>
 
-  {/* LOCATION */}
-  <div className="flex items-start space-x-4">
-    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-      <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M19.5 8c0 7-7.5 11-7.5 11S4.5 15 4.5 8a7.5 7.5 0 1115 0z" />
-      </svg>
-    </div>
-    <div>
-      <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">
-        Global HQ
-      </div>
-      <div className="text-white font-semibold">
-        Bangalore, India
-      </div>
-    </div>
-  </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  📍
+                </div>
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+                    Global HQ
+                  </div>
+                  <div className="text-white font-semibold">Bangalore, India</div>
+                </div>
+              </div>
 
-  {/* DIGITAL PRESENCE */}
-  <div className="flex items-start space-x-4">
-    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-      <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M13.828 10.172a4 4 0 010 5.656m-1.414-1.414a2 2 0 000-2.828M10.172 13.828a4 4 0 010-5.656M15 7h.01M9 7h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    </div>
-    <div>
-      <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">
-        Digital Presence
-      </div>
-      <div className="flex space-x-3">
-        <a
-          href="https://www.linkedin.com/company/labelnest-india/"
-          target="_blank"
-          rel="noreferrer"
-          className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-600 transition-all"
-        >
-          in
-        </a>
-        <a
-          href="https://www.instagram.com/labelnestindia"
-          target="_blank"
-          rel="noreferrer"
-          className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all"
-        >
-          ig
-        </a>
-        <a
-          href="https://x.com/LabelNestAI"
-          target="_blank"
-          rel="noreferrer"
-          className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-slate-700 hover:border-slate-700 transition-all"
-        >
-          x
-        </a>
-      </div>
-    </div>
-  </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  🔗
+                </div>
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">
+                    Digital Presence
+                  </div>
+                  <div className="flex space-x-4">
+                    <a href="https://www.linkedin.com/company/labelnest-india/" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a href="https://www.instagram.com/labelnestindia" target="_blank" rel="noreferrer">Instagram</a>
+                    <a href="https://x.com/LabelNestAI" target="_blank" rel="noreferrer">X</a>
+                  </div>
+                </div>
+              </div>
 
-</div>
+            </div>
 
+            <div className="flex space-x-6 text-xs font-black uppercase tracking-widest text-slate-500">
+              <span className="text-indigo-500">Status: Nominal</span>
+              <span>v2.5.4</span>
+            </div>
+          </div>
 
           {/* CAPABILITIES */}
           <div>
-            <h4 className="font-black mb-8 text-[10px] uppercase tracking-[0.3em] text-slate-500">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">
               Capabilities
             </h4>
             <ul className="space-y-4 text-slate-400 text-sm">
@@ -223,7 +167,7 @@ const App: React.FC = () => {
 
           {/* COMPANY */}
           <div>
-            <h4 className="font-black mb-8 text-[10px] uppercase tracking-[0.3em] text-slate-500">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">
               Company
             </h4>
             <ul className="space-y-4 text-slate-400 text-sm">
@@ -234,18 +178,16 @@ const App: React.FC = () => {
               <li><button onClick={() => navigate('/contact')}>Contact</button></li>
             </ul>
           </div>
+
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em]">
+        <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-white/5 flex justify-between text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
           <span>© 2025 LABELNEST INDIA PRIVATE LIMITED</span>
-          <div className="flex space-x-8 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Protocol</a>
-            <a href="#" className="hover:text-white">System Terms</a>
-          </div>
+          <span>Privacy · Terms</span>
         </div>
       </footer>
 
-      {/* NESTOR — CONFIRMED PRESENT */}
+      {/* NESTOR */}
       <NestorChat externalAvatar={nestorAvatar} />
     </div>
   );
