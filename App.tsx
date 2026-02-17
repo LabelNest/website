@@ -87,12 +87,14 @@ const App: React.FC = () => {
         {renderContent()}
       </main>
 
-      {/* 🔻 ORIGINAL FOOTER — RESTORED */}
+      {/* FOOTER */}
       <footer className="bg-slate-900 text-white py-24 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-16">
+
+          {/* BRAND + CONTACT */}
           <div className="col-span-1 md:col-span-2">
             <div
-              className="flex items-center space-x-3 mb-8 cursor-pointer group"
+              className="flex items-center space-x-3 mb-8 cursor-pointer"
               onClick={() => navigate('/')}
             >
               <svg
@@ -111,11 +113,46 @@ const App: React.FC = () => {
               <span className="text-2xl font-black tracking-tighter">LabelNest</span>
             </div>
 
-            <p className="text-slate-400 max-w-sm mb-8 leading-relaxed text-sm font-light">
+            <p className="text-slate-400 max-w-sm mb-10 leading-relaxed text-sm font-light">
               LabelNest building the infrastructure of intelligence. We combine expert
               human reasoning with deterministic automation to solve the world's hardest
               data problems.
             </p>
+
+            {/* CONTACT BLOCK */}
+            <div className="space-y-6 mb-10">
+              <div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  Email Protocol
+                </div>
+                <a
+                  href="mailto:contact@labelnest.in"
+                  className="text-white font-semibold hover:text-indigo-400"
+                >
+                  contact@labelnest.in
+                </a>
+              </div>
+
+              <div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  Global HQ
+                </div>
+                <div className="text-white font-semibold">
+                  Bangalore, India
+                </div>
+              </div>
+
+              <div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">
+                  Digital Presence
+                </div>
+                <div className="flex space-x-4">
+                  <a href="https://www.linkedin.com/company/labelnest-india/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.instagram.com/labelnestindia" target="_blank" rel="noreferrer">Instagram</a>
+                  <a href="https://x.com/LabelNestAI" target="_blank" rel="noreferrer">X</a>
+                </div>
+              </div>
+            </div>
 
             <div className="flex space-x-6 text-xs font-black uppercase tracking-widest text-slate-500">
               <span className="text-indigo-500">Status: Nominal</span>
@@ -123,6 +160,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
+          {/* CAPABILITIES */}
           <div>
             <h4 className="font-black mb-8 text-[10px] uppercase tracking-[0.3em] text-slate-500">
               Capabilities
@@ -136,6 +174,7 @@ const App: React.FC = () => {
             </ul>
           </div>
 
+          {/* COMPANY */}
           <div>
             <h4 className="font-black mb-8 text-[10px] uppercase tracking-[0.3em] text-slate-500">
               Company
@@ -159,6 +198,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
+      {/* NESTOR — CONFIRMED PRESENT */}
       <NestorChat externalAvatar={nestorAvatar} />
     </div>
   );
