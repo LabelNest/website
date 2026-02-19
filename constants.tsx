@@ -338,12 +338,12 @@ export const ALUMNI_PDF_URL = '#';
 export const JOBS: JobOpening[] = [
   {
     id: 'job-1',
-    title: 'Data Research',
-    department: 'Data',
+    title: 'Strategic Business Development Partner — Data & Intelligence (Global)',
+    department: 'NestSales',
     complexity: 'Medium',
     type: 'Remote',
-    location: 'Anywhere in India',
-    applyUrl: 'mailto:hr@labelnest.in'
+    location: 'Global',
+    applyUrl: 'https://nesthr.labelnest.in/apply/job-NdUmQM75eM'
   }
 ];
 
