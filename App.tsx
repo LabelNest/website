@@ -212,27 +212,30 @@ const App: React.FC = () => {
             </ul>
           </div>
 
-          {/* COMPANY */}
-          <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">
-              Company
-            </h4>
-            <ul className="space-y-4 text-slate-400 text-sm">
-              <li><button onClick={() => navigate('/about')}>Our Dossier</button></li>
-              <li><button onClick={() => navigate('/team')}>The Team</button></li>
-              <li><button onClick={() => navigate('/careers')}>Careers</button></li>
-              <li><button onClick={() => navigate('/partnerships')}>Partnerships</button></li>
-              <li><button onClick={() => navigate('/contact')}>Contact</button></li>
-            </ul>
-          </div>
+     <footer>
+  <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12">
+    {/* COMPANY */}
+    <div>
+      <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">
+        Company
+      </h4>
+      <ul className="space-y-4 text-slate-400 text-sm">
+        <li><button onClick={() => navigate('/about')}>Our Dossier</button></li>
+        <li><button onClick={() => navigate('/team')}>The Team</button></li>
+        <li><button onClick={() => navigate('/careers')}>Careers</button></li>
+        <li><button onClick={() => navigate('/partnerships')}>Partnerships</button></li>
+        <li><button onClick={() => navigate('/contact')}>Contact</button></li>
+      </ul>
+    </div>
+  </div>
 
-        </div>
+  {/* footer bottom bar */}
+  <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-white/5 flex justify-between text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+    <span>© 2025 LABELNEST INDIA PRIVATE LIMITED</span>
+    <span>Privacy · Terms</span>
+  </div>
+</footer>
 
-        <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-white/5 flex justify-between text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
-          <span>© 2025 LABELNEST INDIA PRIVATE LIMITED</span>
-          <span>Privacy · Terms</span>
-        </div>
-      </footer>
 
       {/* NESTOR */}
       <NestorChat externalAvatar={nestorAvatar} />
