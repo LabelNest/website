@@ -337,10 +337,10 @@ export const ALUMNI_PDF_URL = '#';
 
 export const JOBS: JobOpening[] = [
   {
-    id: 'job-1',
+    id: 'job-11',
     title: 'Strategic Business Development Partner — Data & Intelligence (Global)',
     department: 'NestSales',
-    complexity: 'Medium',
+    complexity: 'High',
     type: 'Remote',
     location: 'Global',
     applyUrl: 'https://nesthr.labelnest.in/apply/job-NdUmQM75eM'
