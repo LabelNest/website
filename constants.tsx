@@ -93,6 +93,45 @@ export const LABS: LabExperiment[] = [
 ];
 
 export const BRIEFINGS: Briefing[] = [
+{
+  id: 'br-3',
+  title: 'NestHR: Building the Talent Operating System for the AI Era',
+  summary: 'From campus placement drives to corporate talent acquisition, NestHR is the all-in-one engine for identifying Logical Precision.',
+  content: `Most recruitment tools are digital filing cabinets—they store resumes but fail to manage the "Human" in the loop. At LabelNest, we realized that our mission to provide high-integrity data was only possible if we had a high-integrity workforce. That is why we built **NestHR**.
+ 
+Originally designed as our internal talent engine, NestHR has evolved into a comprehensive **Talent OS** that is now live and powering campus placement drives and corporate hiring across India.
+ 
+### Beyond the Resume: The Full-Stack Workflow
+NestHR doesn't just track candidates; it manages the entire evaluation ecosystem. We have brought every high-friction hiring round into a single, unified dashboard:
+1. **Campus Placement Drives:** A specialized portal for universities to manage massive student cohorts with zero spreadsheet clutter.
+2. **Integrated Assessments:** Built-in testing modules to filter for technical aptitude and logical precision.
+3. **Group Discussion (GD) Management:** A unique interface to coordinate and evaluate group dynamics in real-time.
+4. **Guest Panel & Interview Suite:** Seamlessly bring in external industry experts for final rounds with a single click.
+ 
+ 
+ 
+### The Bridge Between Campus and Corporate
+For Universities, NestHR is a modern placement cell. For Corporates, it is a surgical talent acquisition tool. By automating the "busy work"—scheduling, follow-ups, and score aggregation—we allow HR leaders to focus on what matters: the person.
+ 
+### Powering the "Nestling" Program
+At LabelNest, we practice what we preach. We use NestHR to identify talent for our **Nestling Internship Program**. This ensures that the annotators and analysts working on your **AnnoNest** pipelines or **NestLens** data are the top 1% of vetted talent.
+ 
+### The All-In-One Bootstrap Advantage
+As a founder-led firm, we know the cost of fragmented software. Why pay for four different subscriptions for testing, video calls, and database management? NestHR puts your entire recruitment strategy at your fingertips in one cost-effective, INR-priced ecosystem.
+ 
+### Founder’s Final Thought
+Recruitment shouldn't be a game of chance. Whether you are a college dean looking to place 500 students or a CTO looking for one expert Data Architect, you deserve a system that provides clarity. NestHR is that system—the infrastructure for India’s future workforce.`,
+  date: 'Feb 20, 2026',
+  scope: 'HR-Tech',
+  tags: ['NestHR', 'Talent OS', 'Recruitment Automation', 'Campus Hiring'],
+  readTime: '6 min',
+  isFeatured: true,
+  author: {
+    name: 'Ankit Kumar Suman',
+    role: 'Founder & Director',
+    department: 'Leadership & Strategy'
+  }
+},
   {
     id: 'br-2',
     title: 'Sovereignty and Scale: Why LabelNest is Building an INR-First Data Ecosystem',
@@ -337,8 +376,8 @@ export const ALUMNI_PDF_URL = '#';
 
 export const JOBS: JobOpening[] = [
   {
-    id: 'job-11',
-    title: 'Strategic Business Development Partner — Data & Intelligence (Global)',
+    id: 'job-3',
+    title: 'Strategic Business Development Partner, Data & Intelligence (Global)',
     department: 'NestSales',
     complexity: 'High',
     type: 'Remote',
