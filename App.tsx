@@ -212,7 +212,7 @@ const App: React.FC = () => {
             </ul>
           </div>
 
-     <footer>
+     <div>
   <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12">
     {/* COMPANY */}
     <div>
