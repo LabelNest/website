@@ -97,30 +97,30 @@ export const BRIEFINGS: Briefing[] = [
   id: 'br-3',
   title: 'NestHR: Building the Talent Operating System for the AI Era',
   summary: 'From campus placement drives to corporate talent acquisition, NestHR is the all-in-one engine for identifying Logical Precision.',
-  content: `Most recruitment tools are digital filing cabinets—they store resumes but fail to manage the "Human" in the loop. At LabelNest, we realized that our mission to provide high-integrity data was only possible if we had a high-integrity workforce. That is why we built **NestHR**.
+  content: `Most recruitment tools are digital filing cabinets, they store resumes but fail to manage the "Human" in the loop. At LabelNest, we realized that our mission to provide high-integrity data was only possible if we had a high-integrity workforce. That is why we built NestHR.
  
-Originally designed as our internal talent engine, NestHR has evolved into a comprehensive **Talent OS** that is now live and powering campus placement drives and corporate hiring across India.
+Originally designed as our internal talent engine, NestHR has evolved into a comprehensive Talent OS that is now live and powering campus placement drives and corporate hiring across India.
  
-### Beyond the Resume: The Full-Stack Workflow
+ Beyond the Resume: The Full-Stack Workflow
 NestHR doesn't just track candidates; it manages the entire evaluation ecosystem. We have brought every high-friction hiring round into a single, unified dashboard:
-1. **Campus Placement Drives:** A specialized portal for universities to manage massive student cohorts with zero spreadsheet clutter.
-2. **Integrated Assessments:** Built-in testing modules to filter for technical aptitude and logical precision.
-3. **Group Discussion (GD) Management:** A unique interface to coordinate and evaluate group dynamics in real-time.
-4. **Guest Panel & Interview Suite:** Seamlessly bring in external industry experts for final rounds with a single click.
+1. Campus Placement Drives: A specialized portal for universities to manage massive student cohorts with zero spreadsheet clutter.
+2. Integrated Assessments: Built-in testing modules to filter for technical aptitude and logical precision.
+3. Group Discussion (GD) Management: A unique interface to coordinate and evaluate group dynamics in real-time.
+4. Guest Panel & Interview Suite: Seamlessly bring in external industry experts for final rounds with a single click.
  
  
  
-### The Bridge Between Campus and Corporate
-For Universities, NestHR is a modern placement cell. For Corporates, it is a surgical talent acquisition tool. By automating the "busy work"—scheduling, follow-ups, and score aggregation—we allow HR leaders to focus on what matters: the person.
+ The Bridge Between Campus and Corporate
+For Universities, NestHR is a modern placement cell. For Corporates, it is a surgical talent acquisition tool. By automating the "busy work", scheduling, follow-ups, and score aggregation, we allow HR leaders to focus on what matters: the person.
  
-### Powering the "Nestling" Program
-At LabelNest, we practice what we preach. We use NestHR to identify talent for our **Nestling Internship Program**. This ensures that the annotators and analysts working on your **AnnoNest** pipelines or **NestLens** data are the top 1% of vetted talent.
+ Powering the "Nestling" Program
+At LabelNest, we practice what we preach. We use NestHR to identify talent for our Nestling Internship Program. This ensures that the annotators and analysts working on your AnnoNest pipelines or NestLens data are the top 1% of vetted talent.
  
-### The All-In-One Bootstrap Advantage
+ The All-In-One Bootstrap Advantage
 As a founder-led firm, we know the cost of fragmented software. Why pay for four different subscriptions for testing, video calls, and database management? NestHR puts your entire recruitment strategy at your fingertips in one cost-effective, INR-priced ecosystem.
  
-### Founder’s Final Thought
-Recruitment shouldn't be a game of chance. Whether you are a college dean looking to place 500 students or a CTO looking for one expert Data Architect, you deserve a system that provides clarity. NestHR is that system—the infrastructure for India’s future workforce.`,
+ Author’s Final Thought
+Recruitment shouldn't be a game of chance. Whether you are a college dean looking to place 500 students or a CTO looking for one expert Data Architect, you deserve a system that provides clarity. NestHR is that system, the infrastructure for India’s future workforce.`,
   date: 'Feb 20, 2026',
   scope: 'HR-Tech',
   tags: ['NestHR', 'Talent OS', 'Recruitment Automation', 'Campus Hiring'],
@@ -140,25 +140,25 @@ Recruitment shouldn't be a game of chance. Whether you are a college dean lookin
 
 Most AI data firms in Bangalore and beyond are looking West. They price their services in USD, operate on Western timelines, and treat the domestic Indian market as a secondary priority. At LabelNest, we believe that for India to become a global AI superpower, our foundational infrastructure must be Currency Aligned.
 
-### The Problem with the USD-Standard
+ The Problem with the USD-Standard
 
 When an Indian startup or research firm builds a model, they face a massive hurdle: exchange rate volatility. Paying for data annotation or market intelligence in USD means your ROI is at the mercy of the forex market.
 
 Furthermore, global platforms often fail to capture the nuance of the Indian landscape. Whether it’s regional dialects, local retail environments, or specific financial regulations, "Global" usually means "Generic."
 
-### The INR Advantage: Why We Are Different
+ The INR Advantage: Why We Are Different
 
 At LabelNest, we are building a "Platform-First" ecosystem designed specifically for the needs of local and global firms operating in India. Here is why our INR-first approach is a strategic advantage for our clients:
 
-1. **Budget Predictability:** No hidden "forex taxes" or mid-project price hikes. What you see in INR is what you pay.
-2. **Contextual Intelligence:** We aren’t just cheaper; we are closer. When we annotate Indian road data or transcribe regional dialects, we aren’t just processing data—we are applying lived experience.
-3. **The Local Multiplier:** By keeping capital within the Indian ecosystem, we can scale our Nestling workforce faster, providing elite "Human-in-the-Loop" quality at a fraction of the cost of offshore enterprise platforms.
+1. Budget Predictability: No hidden "forex taxes" or mid-project price hikes. What you see in INR is what you pay.
+2. Contextual Intelligence: We aren’t just cheaper; we are closer. When we annotate Indian road data or transcribe regional dialects, we aren’t just processing data, we are applying lived experience.
+3. The Local Multiplier: By keeping capital within the Indian ecosystem, we can scale our Nestling workforce faster, providing elite "Human-in-the-Loop" quality at a fraction of the cost of offshore enterprise platforms.
 
-### A Suite Built for Scale
+ A Suite Built for Scale
 
-Our mid-February launch of the full "Nest" Suite—AnnoNest, NestLens, and NestResolve—is built on this philosophy of logical precision and economic transparency. Whether you are using NestHR to find subject matter experts or buying entity-level data on NestLens, you are accessing institutional-grade power through a domestic pricing lens.
+Our mid-February launch of the full "Nest" Suite, AnnoNest, NestLens, and NestResolve, is built on this philosophy of logical precision and economic transparency. Whether you are using NestHR to find subject matter experts or buying entity-level data on NestLens, you are accessing institutional-grade power through a domestic pricing lens.
 
-### Founder’s Final Thought
+ Founder’s Final Thought
 
 LabelNest is a proudly bootstrapped firm. We don’t answer to VC benchmarks in Silicon Valley; we answer to the Indian founder who needs high-integrity, ground-truth data to build the next generation of AI.
 
@@ -180,24 +180,24 @@ The future of data shouldn't be a "black box" priced in a foreign currency. It s
     summary: 'In a world of AI hype, LabelNest is building a sustainable, piece-by-piece data ecosystem focused on accuracy and client-led growth.',
     content: `In the current AI gold rush, the standard playbook is simple: raise millions in venture capital, spend it on aggressive marketing, and hope the product catches up to the hype. 
 
-At LabelNest, we’ve chosen a different path. We are **bootstrapped by design.** Choosing to build without external funding isn't just a financial decision; it is a commitment to **Logical Precision.** When you aren't burning someone else’s cash, every feature you build and every dataset you curate must solve a real-world problem for a paying client. There is no room for "filler" code or "fluff" data.
+At LabelNest, we’ve chosen a different path. We are bootstrapped by design. Choosing to build without external funding isn't just a financial decision; it is a commitment to Logical Precision. When you aren't burning someone else’s cash, every feature you build and every dataset you curate must solve a real-world problem for a paying client. There is no room for "filler" code or "fluff" data.
 
-### The "Piece-by-Piece" Philosophy
+ The "Piece-by-Piece" Philosophy
 
 We didn't launch a vague "AI company." We built an ecosystem, one functional block at a time:
 
-1. **NestHR (The Foundation):** We started by solving the talent problem. You cannot have high-quality AI data without high-quality human experts. NestHR allowed us to build an automated pipeline of Subject Matter Experts (SMEs).
-2. **AnnoNest (The Engine):** Once we had the people, we built the workbench. AnnoNest isn't just a labeling tool; it’s a Data CRM that handles extraction, translation, and monitoring with flat-pricing transparency.
-3. **NestLens (The Marketplace):** With the talent and the tools in place, we began harvesting ground-truth intelligence. Now, we are opening that vault as India’s first alternative data marketplace.
-4. **NestResolve (The Final Polish):** Our upcoming launch in mid-February completes the loop, ensuring that conflict resolution and QA are baked into the very fabric of the data.
+1. NestHR (The Foundation): We started by solving the talent problem. You cannot have high-quality AI data without high-quality human experts. NestHR allowed us to build an automated pipeline of Subject Matter Experts (SMEs).
+2. AnnoNest (The Engine): Once we had the people, we built the workbench. AnnoNest isn't just a labeling tool; it’s a Data CRM that handles extraction, translation, and monitoring with flat-pricing transparency.
+3. NestLens (The Marketplace): With the talent and the tools in place, we began harvesting ground-truth intelligence. Now, we are opening that vault as India’s first alternative data marketplace.
+4. NestResolve (The Final Polish): Our upcoming launch in mid-February completes the loop, ensuring that conflict resolution and QA are baked into the very fabric of the data.
 
-### Why "Bootstrap" Means Better Data for You
+ Why "Bootstrap" Means Better Data for You
 
-When a firm is venture-backed, they are often pressured to prioritize **volume over value** to meet monthly growth targets. They need to show millions of labels, even if the accuracy is questionable.
+When a firm is venture-backed, they are often pressured to prioritize volume over value to meet monthly growth targets. They need to show millions of labels, even if the accuracy is questionable.
 
-As a bootstrapped firm, LabelNest prioritizes **Precision over Volume.** Our survival depends on our data working perfectly for your models. If our "Human-in-the-Loop" services fail to deliver ground truth, we don't just lose a metric—we lose a partner.
+As a bootstrapped firm, LabelNest prioritizes Precision over Volume. Our survival depends on our data working perfectly for your models. If our "Human-in-the-Loop" services fail to deliver ground truth, we don't just lose a metric, we lose a partner.
 
-### Building the "Datarade of India" with INR Pricing
+ Building the "Datarade of India" with INR Pricing
 
 By being lean, we have the freedom to price our services in INR, making enterprise-grade data intelligence accessible to the Indian market. We aren't chasing a Silicon Valley exit; we are building a long-term utility for the global AI economy, rooted in Indian expertise.
 
