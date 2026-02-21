@@ -89,119 +89,107 @@ const App: React.FC = () => {
             </div>
 
             <p className="text-slate-400 max-w-sm mb-10 text-sm">
-              LabelNest building the infrastructure of intelligence through expert human
-              reasoning and deterministic automation.
+              LabelNest building the infrastructure of intelligence through expert
+              human reasoning and deterministic automation.
             </p>
 
             {/* CONTACT BLOCK */}
-            <div className="space-y-6 mb-10">
+            <div className="space-y-10">
 
               {/* EMAIL */}
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="flex items-start space-x-6">
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-indigo-400">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M3 8l9 6 9-6M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"
-                    />
+                      d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">
                     Email Protocol
-                  </div>
-                  <a href="mailto:contact@labelnest.in" className="text-white font-semibold hover:text-indigo-400 transition-colors">
-                    contact@labelnest.in
-                  </a>
+                  </h4>
+                  <p className="text-white font-semibold">contact@labelnest.in</p>
                 </div>
               </div>
 
               {/* LOCATION */}
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="flex items-start space-x-6">
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-indigo-400">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"
-                    />
+                      d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M19.5 8c0 7-7.5 11-7.5 11S4.5 15 4.5 8a7.5 7.5 0 1115 0z"
-                    />
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">
                     Global HQ
-                  </div>
-                  <div className="text-white font-semibold">Bangalore, India</div>
+                  </h4>
+                  <p className="text-white font-semibold">Bangalore, India</p>
                 </div>
               </div>
 
-       {/* DIGITAL PRESENCE */}
-<div className="flex items-start space-x-4">
-  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-    <svg
-      className="w-5 h-5 text-indigo-400"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-      />
-    </svg>
-  </div>
+              {/* DIGITAL PRESENCE — COPIED FROM CONTACT */}
+              <div className="flex items-start space-x-6">
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-indigo-400">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                  </svg>
+                </div>
 
-  <div>
-    <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">
-      Digital Presence
-    </div>
+                <div>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">
+                    Digital Presence
+                  </h4>
 
-    <div className="flex items-center space-x-4">
-      {/* LinkedIn */}
-      <a
-        href="https://www.linkedin.com/company/labelnest-india/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-indigo-600 transition-colors shadow-lg"
-      >
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z" />
-          <path d="M7 19H4V9h3v10zM5.5 7.5A1.5 1.5 0 115.5 4a1.5 1.5 0 010 3.5zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V9h3v1.8c1.4-2.6 7-2.8 7 2.5V19z" />
-        </svg>
-      </a>
+                  <div className="flex items-center space-x-4">
+                    <a
+                      href="https://www.linkedin.com/company/labelnest-india/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-indigo-600 transition-colors shadow-lg"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z"/>
+                        <path d="M7 19H4V9h3v10zM5.5 7.5A1.5 1.5 0 115.5 4a1.5 1.5 0 010 3.5zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V9h3v1.8c1.4-2.6 7-2.8 7 2.5V19z"/>
+                      </svg>
+                    </a>
 
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/labelnestindia"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-pink-600 transition-colors shadow-lg"
-      >
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
-        </svg>
-      </a>
+                    <a
+                      href="https://www.instagram.com/labelnestindia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-pink-600 transition-colors shadow-lg"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                      </svg>
+                    </a>
 
-      {/* X */}
-      <a
-        href="https://x.com/LabelNestAI"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-slate-700 transition-colors shadow-lg"
-      >
-        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
+                    <a
+                      href="https://x.com/LabelNestAI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-slate-700 transition-colors shadow-lg"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
 
           {/* CAPABILITIES */}
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">Capabilities</h4>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">
+              Capabilities
+            </h4>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><button onClick={() => navigate('/products')}>Data Systems</button></li>
               <li><button onClick={() => navigate('/solutions')}>Intelligence Flows</button></li>
@@ -213,7 +201,9 @@ const App: React.FC = () => {
 
           {/* COMPANY */}
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">Company</h4>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-8">
+              Company
+            </h4>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><button onClick={() => navigate('/about')}>Our Dossier</button></li>
               <li><button onClick={() => navigate('/team')}>The Team</button></li>
@@ -222,7 +212,6 @@ const App: React.FC = () => {
               <li><button onClick={() => navigate('/contact')}>Contact</button></li>
             </ul>
           </div>
-
         </div>
 
         <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-white/5 flex justify-between text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
