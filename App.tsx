@@ -135,49 +135,69 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* DIGITAL PRESENCE */}
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M13.828 10.172a4 4 0 010 5.656m-1.414-1.414a2 2 0 000-2.828M10.172 13.828a4 4 0 010-5.656M15 7h.01M9 7h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
+       {/* DIGITAL PRESENCE */}
+<div className="flex items-start space-x-4">
+  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+    <svg
+      className="w-5 h-5 text-indigo-400"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+      />
+    </svg>
+  </div>
 
-                <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">
-                    Digital Presence
-                  </div>
+  <div>
+    <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">
+      Digital Presence
+    </div>
 
-                  <div className="flex space-x-3">
-                    <a href="https://www.linkedin.com/company/labelnest-india/" target="_blank" rel="noreferrer"
-                      className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shadow-lg hover:bg-indigo-600 transition-colors">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z" />
-                        <path d="M7 19H4V9h3v10zM5.5 7.5A1.5 1.5 0 115.5 4a1.5 1.5 0 010 3.5zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V9h3v1.8c1.4-2.6 7-2.8 7 2.5V19z" />
-                      </svg>
-                    </a>
+    <div className="flex items-center space-x-4">
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/company/labelnest-india/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-indigo-600 transition-colors shadow-lg"
+      >
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z" />
+          <path d="M7 19H4V9h3v10zM5.5 7.5A1.5 1.5 0 115.5 4a1.5 1.5 0 010 3.5zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V9h3v1.8c1.4-2.6 7-2.8 7 2.5V19z" />
+        </svg>
+      </a>
 
-                    <a href="https://www.instagram.com/labelnestindia" target="_blank" rel="noreferrer"
-                      className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shadow-lg hover:bg-pink-600 transition-colors">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.6 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.2-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.9s0-3.5.1-4.8c.1-3.3 1.7-4.8 4.9-4.9 1.3-.1 1.7-.1 4.9-.1z" />
-                      </svg>
-                    </a>
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/labelnestindia"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-pink-600 transition-colors shadow-lg"
+      >
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+        </svg>
+      </a>
 
-                    <a href="https://x.com/LabelNestAI" target="_blank" rel="noreferrer"
-                      className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shadow-lg hover:bg-slate-700 transition-colors">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+      {/* X */}
+      <a
+        href="https://x.com/LabelNestAI"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-slate-700 transition-colors shadow-lg"
+      >
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
 
           {/* CAPABILITIES */}
           <div>
