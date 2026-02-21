@@ -220,6 +220,7 @@ const App: React.FC = () => {
     </div>
   </div>
 </div>
+</div>   {/* closes CONTACT BLOCK */}
 
           {/* CAPABILITIES */}
           <div>
