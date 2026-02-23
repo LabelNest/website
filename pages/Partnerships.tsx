@@ -68,34 +68,14 @@ const Partnerships: React.FC = () => {
           </h1>
         </header>
 
-        {/* TRACKS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
-          {[
-            {
-              title: 'System R&D Partner',
-              desc: 'Execution, research, annotation, and system-layer collaboration.'
-            },
-            {
-              title: 'Intelligence Resale Partner',
-              desc: 'Resell or embed LabelNest datasets via DaaS or APIs.'
-            },
-            {
-              title: 'Channel Partner',
-              desc: 'Consulting, agencies, or firms bringing distribution.'
-            }
-          ].map((t, i) => (
-            <div key={i} className="p-10 bg-slate-50 rounded-[3rem]">
-              <h3 className="text-2xl font-black mb-4">{t.title}</h3>
-              <p className="text-slate-500 text-sm mb-6">{t.desc}</p>
-              <button
-                onClick={() => scrollToForm(t.title)}
-                className="text-xs font-black uppercase tracking-widest text-indigo-600"
-              >
-                Inquire →
-              </button>
-            </div>
-          ))}
-        </div>
+        {/* PARTNERS INTRO */}
+        <section className="mb-20 text-center max-w-3xl mx-auto">
+          <p className="text-slate-600 text-sm leading-relaxed">
+            LabelNest partnerships are structured for long-term collaboration.
+            We work with organizations and individuals who help extend our execution,
+            intelligence, and market reach through clearly defined engagement models.
+          </p>
+        </section>
 
         {/* PARTNERS */}
         <section id="partners" className="mb-32">
@@ -103,12 +83,15 @@ const Partnerships: React.FC = () => {
             <h2 className="text-5xl font-black tracking-tight">
               Trusted <span className="text-indigo-600">Partners</span>
             </h2>
+            <p className="text-slate-500 text-sm mt-6 max-w-2xl mx-auto">
+              The following partners collaborate with LabelNest as part of our extended
+              execution and intelligence ecosystem.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {partners.map((p, i) => (
               <div key={i} className="bg-slate-50 p-10 rounded-[3rem] text-center">
-
                 {p.logo && (
                   <div className="mb-8 flex justify-center">
                     <img
@@ -142,6 +125,59 @@ const Partnerships: React.FC = () => {
           </div>
         </section>
 
+        {/* TRACKS INTRO */}
+        <section className="mb-20 text-center max-w-3xl mx-auto">
+          <p className="text-slate-600 text-sm leading-relaxed">
+            LabelNest offers multiple partnership tracks depending on how you wish to collaborate —
+            from deep system-level engagement to referrals and distribution-led relationships.
+          </p>
+        </section>
+
+        {/* REFERRAL PARTNER EXPLANATION */}
+        <section className="mb-24 max-w-4xl mx-auto bg-slate-50 p-12 rounded-[3rem]">
+          <h3 className="text-3xl font-black mb-6">
+            Referral Partner <span className="text-indigo-600">(Lifecycle Rewards)</span>
+          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            This track is designed for individuals or organizations who introduce LabelNest
+            to relevant opportunities, clients, or decision-makers.
+          </p>
+          <p className="text-slate-600 text-sm leading-relaxed">
+            Referral Partners are not responsible for selling or execution.
+            Rewards are linked to realized outcomes over the lifecycle of the relationship,
+            governed through a structured and transparent framework.
+          </p>
+        </section>
+
+        {/* TRACKS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+          {[
+            {
+              title: 'System R&D Partner',
+              desc: 'Execution, research, annotation, and system-layer collaboration.'
+            },
+            {
+              title: 'Intelligence Resale Partner',
+              desc: 'Resell or embed LabelNest datasets via DaaS or APIs.'
+            },
+            {
+              title: 'Channel Partner',
+              desc: 'Consulting, agencies, or firms bringing distribution.'
+            }
+          ].map((t, i) => (
+            <div key={i} className="p-10 bg-slate-50 rounded-[3rem]">
+              <h3 className="text-2xl font-black mb-4">{t.title}</h3>
+              <p className="text-slate-500 text-sm mb-6">{t.desc}</p>
+              <button
+                onClick={() => scrollToForm(t.title)}
+                className="text-xs font-black uppercase tracking-widest text-indigo-600"
+              >
+                Inquire →
+              </button>
+            </div>
+          ))}
+        </div>
+
         {/* FORM */}
         <div id="partnership-form" className="max-w-4xl mx-auto">
           <div className="bg-slate-50 p-12 rounded-[4rem] border border-slate-100 shadow-sm">
@@ -170,7 +206,6 @@ const Partnerships: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
-
                 <input
                   name="entityName"
                   required
@@ -235,9 +270,13 @@ const Partnerships: React.FC = () => {
                 >
                   {isSubmitting ? "Initializing..." : "Initialize Alliance Request"}
                 </button>
-
               </form>
             )}
+
+            <p className="text-center text-xs text-slate-400 mt-10">
+              All partnerships and referrals are governed by LabelNest Partner & Referral Policy.
+            </p>
+
           </div>
         </div>
 
