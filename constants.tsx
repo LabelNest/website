@@ -128,6 +128,121 @@ export const LABS: LabExperiment[] = [
 export const BRIEFINGS: Briefing[] = [
 
 {
+  id: 'br-8',
+  title: 'DataNest: The Infinite Registry—Built by Us, Orchestrated by AI Agents',
+  summary: 'LabelNest was the first customer of DataNest. Now, we are combining infinite configurability with AI Research Agents to automate the boring and focus on the vital.',
+  content: `At LabelNest, we had a problem: we were drowning in complex, fragmented data across global markets. We needed a place where every entity—from a boutique fund to a massive portfolio company—could live in a verified environment. 
+
+We battle-tested **DataNest** on our own proprietary intelligence before opening it to the world. But we didn’t just build a database; we built an **Intelligence Partner.**
+
+### Your Taxonomy, Your Rules
+Most registries force you into a pre-set box. DataNest is different. Within our multi-tenant architecture, you have total control to build without code:
+* **Custom Entity Types:** Track "Limited Partners," "Research Grants," or "Strategic Assets."
+* **Infinite Field Configuration:** Add ESG scores, forensic audit dates, or risk metrics in seconds.
+* **Dynamic Sections:** Group data into workflows that match your internal logic.
+
+### Enter the Research Agents: Automation with a Purpose
+The true power of DataNest lies in our integrated **AI Research Agents**. We realized that humans shouldn't spend 90% of their time searching for a LinkedIn URL or an SEC filing. 
+
+
+
+Our Agents (Finder, Enricher, and Linker) work in the background to:
+1. **Discover & Enrich:** Automatically scan global sources to fill in missing entity details, from contact info to recent market signals.
+2. **Confidence-Based Routing:** If an Agent finds data with 99% confidence, it updates the registry instantly. If it’s ambiguous, it flags it for human review.
+3. **Give Time Back:** By automating the "discovery" phase, we allow your experts to focus 100% of their energy on **Strategy and Decision-Making**, rather than data hunting.
+
+### Scaling the Truth
+We built DataNest to handle the complexity of global research. By using it ourselves, we ensured that it isn't just a database—it’s an **Intelligence Asset.** Whether you are tracking 10 entities or 10,000, DataNest provides the structure you need to move from "Managing Data" to "Acting on Insight." You define the world; our Agents help you monitor it.`,
+  date: 'Feb 24, 2026',
+  scope: 'Product',
+  tags: ['DataNest', 'AI Agents', 'Entity Registry', 'Automation'],
+  readTime: '8 min',
+  isFeatured: false,
+  author: {
+    name: 'Ankit Kumar Suman',
+    role: 'Founder & Director',
+    department: 'Leadership & Strategy'
+  }
+},
+
+{
+  id: 'br-7',
+  title: 'Democratizing AI: Why True Innovation Requires Affordable Data Infrastructure',
+  summary: 'True democracy of data is achieved when institutional-grade tools no longer cost a fortune. How LabelNest is lowering the barrier to entry for the next billion AI users.',
+  content: `In the current landscape, "Institutional Intelligence" has become a gated community. The tools required to build, train, and verify AI are often priced in foreign currencies and locked behind five-figure enterprise contracts. 
+
+At LabelNest, we believe that **The Democracy of Data** is not just a slogan—it is an economic necessity. Data is only truly "democratic" when it is affordable, accessible, and does not require a venture-funded fortune to utilize.
+
+### The Cost Barrier to Innovation
+When data infrastructure is priced for global monopolies, local founders, independent researchers, and boutique institutions are left behind. They are forced to build on "hollow data"—unverified, generic, and low-integrity—because the "Ground Truth" is too expensive to buy. 
+
+This creates a "Precision Divide" where only the largest players can afford the accuracy required for high-stakes decisions.
+
+### Our Three Pillars of Data Democracy
+We are dismantling this barrier through three specific choices:
+
+1. **Credit-Based Access:** By replacing massive annual subscriptions with a transparent credit system, we allow a solo PhD researcher to access the same **Forensic Refinery** power as a global bank. You pay for the precision you use, not the size of your logo.
+2. **INR-First Sovereignty:** By pricing our ecosystem in INR, we eliminate the "Forex Tax." This provides budget predictability for Indian innovators, ensuring that domestic capital stays focused on domestic growth.
+3. **The 70/30 Partner Model:** Democracy means participation. By offering a 70/30 revenue share on our marketplace, we ensure that the individuals who generate the intelligence keep the majority of the value.
+
+
+
+### From Elite to Universal
+True progress happens when high-end tech becomes a utility. Whether it is **NestHR** finding talent for a startup in a Tier-2 city, or **AnnoNest** providing entity-level extraction for a local NGO, we are building for the many, not the few.
+
+The future of AI shouldn't belong to those with the deepest pockets; it should belong to those with the best logic. By making precision affordable, we aren't just selling a service—we are leveling the playing field.`,
+  date: 'Feb 24, 2026',
+  scope: 'Manifesto',
+  tags: ['Data Democracy', 'Affordability', 'AI Sovereignty', 'Innovation'],
+  readTime: '6 min',
+  isFeatured: true,
+  author: {
+    name: 'Ankit Kumar Suman',
+    role: 'Founder & Director',
+    department: 'Leadership & Strategy'
+  }
+},
+
+{
+  id: 'br-5',
+  title: 'Forensic Refinery: Institutional Extraction for Everyone, Powered by Credits',
+  summary: 'Whether you are a solo researcher with one PDF or a global team monitoring thousands of URLs, the Forensic Refinery scales to your needs with transparent, credit-based pricing.',
+  content: `High-value intelligence shouldn't be locked behind a "gatekeeper" or a six-figure enterprise contract. At LabelNest, we’ve built the **Forensic Refinery** to be the most versatile extraction engine in the market—accessible to an individual analyst or a Fortune 500 department.
+
+### The Power to Extract from Any Source
+Data doesn't just sit in files; it’s scattered across the web. The Forensic Refinery allows you to point our engine at any source and watch it deconstruct noise into structured truth:
+* **Single PDF Uploads:** Perfect for deep-diving into a specific fund fact sheet or a 200-page regulatory filing.
+* **URL-Based Ingestion:** Give us a link to a news article, a corporate landing page, or a financial portal, and we’ll extract the entities and relationships for you.
+* **Mass Ingestion:** Designed for teams, allowing for bulk processing of thousands of documents simultaneously.
+
+
+
+### Built for Every Team Size
+We realized that "Institutional" shouldn't mean "Inflexible."
+* **Individual Researchers:** Use the Refinery as your personal AI research assistant. No setup fee, just upload and extract.
+* **Agile Teams:** Collaborate on shared extraction projects, where multiple analysts can verify the "Refinery" outputs in a unified Task Cockpit.
+* **Enterprise Power:** Deploy at scale with multi-tenant isolation, ensuring your team’s research remains private and secure.
+
+### The Logic of the Credit System
+We are moving away from the "Legacy Subscription" model that forces you to pay for features you don't use. The Forensic Refinery operates on a **Transparent Credit System**:
+1. **Predictable Pricing:** You only spend credits for what you process—be it a URL, a page of a PDF, or a forensic audit of a document.
+2. **INR-First Economy:** In line with our commitment to sovereignty, your credits are priced in INR, eliminating the "Forex Tax" for our domestic partners.
+3. **No Success Tax:** Scale your research as much as you want. Your cost per credit stays fair, ensuring your ROI grows as your data grows.
+
+### Precision on Demand
+The Forensic Refinery is the entry point into the AnnoNest ecosystem. It’s where raw documents become the fuel for your **DataNest** registry. Whether you have one document or one million, the Refinery provides the same institutional-grade precision, one credit at a time.`,
+  date: 'Feb 24, 2026',
+  scope: 'Intelligence',
+  tags: ['Forensic Refinery', 'Data Extraction', 'Credit-Based', 'NLP'],
+  readTime: '5 min',
+  isFeatured: true,
+  author: {
+    name: 'Ankit Kumar Suman',
+    role: 'Founder & Director',
+    department: 'Leadership & Strategy'
+  }
+},
+{
   id: 'br-4',
   title: 'AnnoNest: The Unified Data Intelligence Operating System for Global Institutions',
   summary: 'Beyond simple labeling—AnnoNest centralizes the entire data lifecycle into a multi-tenant OS for entity discovery, forensic extraction, and cross-border intelligence.',
