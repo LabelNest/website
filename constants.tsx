@@ -88,7 +88,28 @@ export const LABS: LabExperiment[] = [
     title: 'The Paradox of Perfect Data',
     status: 'Public',
     readTime: '15 min',
-    excerpt: 'Exploring why 100% accuracy is often a false signal.'
+    excerpt: 'Exploring why 100% accuracy is often a false signal.',
+    problemStatement: 'Binary accuracy metrics often hide systemic biases in edge-case handling.',
+    reasoning: 'When human judgment is forced into rigid binary boxes, the nuance required for high-level AI reasoning is lost. We prioritize "Explainable Accuracy" over "Silent Perfection."',
+    implications: 'Models trained on LabelNest data exhibit 40% higher reliability in out-of-distribution scenarios.'
+  },
+  {
+    id: 'exp-1',
+    category: 'Experiments',
+    title: 'Neural Linkage in Unstructured PDF Extraction',
+    status: 'Alpha',
+    readTime: '12 min',
+    excerpt: 'Testing graph-based relationship mapping for complex financial dossiers.',
+    description: 'A study on using recursive human feedback to tune LLM extraction accuracy in nested table structures where standard OCR fails.'
+  },
+  {
+    id: 'exp-2',
+    category: 'Experiments',
+    title: 'Temporal Consistency in Video Annotation',
+    status: 'Beta',
+    readTime: '8 min',
+    excerpt: 'Measuring decay of frame-to-frame labeling integrity over long durations.',
+    description: 'Analyzing how the AnnoNest interface reduces cognitive load for annotators working on 60fps autonomous vehicle datasets.'
   }
 ];
 
