@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { LABS, LAB_SERVICES } from '../constants';
 
 const Labs: React.FC = () => {
@@ -7,7 +7,12 @@ const Labs: React.FC = () => {
   const methodologies = LABS.filter(l => l.category === 'Methodologies');
 
   return (
-    <div className="pt-48 pb-32 bg-white">
+    <div className="pt-48 pb-32 bg-white overflow-x-hidden">
+      <Helmet>
+        <title>Labs | LabelNest India | HITL Systems</title>
+        <meta name="description" content="Where human expertise meets structured intelligence systems." />
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-4">
         {/* 🚀 PAGE HEADER */}
         <header className="mb-32 text-center md:text-left border-b border-slate-100 pb-20">
@@ -98,8 +103,8 @@ const Labs: React.FC = () => {
                  </div>
               </div>
            </div>
-           <div className="absolute inset-0 opacity-[0.03] pointer-events-none select-none">
-              <div className="text-[25rem] font-black text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase tracking-tighter">ENGINE</div>
+           <div className="absolute inset-0 opacity-[0.03] pointer-events-none select-none flex items-center justify-center">
+              <div className="text-[15rem] md:text-[25rem] font-black text-white uppercase tracking-tighter">ENGINE</div>
            </div>
         </section>
 
@@ -140,7 +145,7 @@ const Labs: React.FC = () => {
                       ))}
                    </div>
                    <button className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-900 border-b-2 border-indigo-600 self-start pb-2 hover:text-indigo-600 transition-colors">
-                     Read Experiment &rarr;
+                      Read Experiment &rarr;
                    </button>
                 </div>
               </div>
@@ -184,8 +189,8 @@ const Labs: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <div className="absolute right-0 top-0 opacity-[0.03] text-[15rem] font-black text-indigo-600 pointer-events-none select-none translate-x-1/4 -translate-y-1/4">
-                   TRUTH
+                <div className="absolute right-0 top-0 opacity-[0.02] text-[10rem] md:text-[15rem] font-black text-indigo-600 pointer-events-none select-none translate-x-1/4 -translate-y-1/4">
+                    TRUTH
                 </div>
               </div>
             ))}
@@ -203,7 +208,7 @@ const Labs: React.FC = () => {
               </p>
            </div>
            <div className="absolute right-0 bottom-0 opacity-[0.03] text-9xl font-black text-indigo-600 pointer-events-none select-none -mb-10 -mr-10">
-             GUIDE
+              GUIDE
            </div>
         </section>
 
