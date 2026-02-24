@@ -75,9 +75,21 @@ export const SOLUTIONS: Solution[] = [
 export const LAB_SERVICES: LabService[] = [
   {
     id: 'annotation',
-    title: 'Annotation (All Types)',
-    description: 'Schema-driven annotation across all modalities.',
-    includes: ['Text', 'Image', 'Audio', 'Video']
+    title: 'Precision Annotation',
+    description: 'Schema-driven annotation across all modalities. We move beyond simple boxes to capture the logical intent of data.',
+    includes: ['Multi-modal (Text, Image, Video)', 'Temporal Continuity Tracking', 'Sentiment & Intent Mapping', 'Edge-case Documentation']
+  },
+  {
+    id: 'sourcing',
+    title: 'Intelligence Sourcing',
+    description: 'Custom discovery of entity-level data and alternative intelligence, verified by domain experts before delivery.',
+    includes: ['Alternative Data Discovery', 'Entity Relationship Mapping', 'Market Signal Extraction', 'Auditable Data Lineage']
+  },
+  {
+    id: 'validation',
+    title: 'Validation & QA Logic',
+    description: 'Strategic quality governance for existing datasets. We identify "Silent Failures" in your AI training data.',
+    includes: ['Programmatic Discrepancy Detection', 'Human-in-the-loop Audits', 'Bias Identification', 'Model Calibration Support']
   }
 ];
 
