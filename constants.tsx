@@ -126,6 +126,52 @@ export const LABS: LabExperiment[] = [
 ];
 
 export const BRIEFINGS: Briefing[] = [
+
+{
+  id: 'br-4',
+  title: 'AnnoNest: The Unified Data Intelligence Operating System for Global Institutions',
+  summary: 'Beyond simple labeling—AnnoNest centralizes the entire data lifecycle into a multi-tenant OS for entity discovery, forensic extraction, and cross-border intelligence.',
+  content: `High-stakes decisions require high-integrity data. Yet, for most modern institutions, the infrastructure supporting that data remains dangerously fragmented. Research teams toggle between dozens of siloed tools, introducing risk and delaying critical insights. At LabelNest, we built **AnnoNest** to solve this—one platform, one source of truth, infinite configurability.
+
+AnnoNest is a multi-tenant Data Intelligence Operating System. It is the engine room where raw, chaotic information is refined into verified institutional intelligence.
+
+### Solving the Fragmentation Tax
+The cost of fragmented workflows isn't just financial; it’s measured in missed signals and operational friction. AnnoNest eliminates this by bringing every stage of the data workflow under one roof:
+
+**1. Entity Intelligence (The DataNest Engine)**
+Our dynamic registry serves as a tenant-configurable "Single Source of Truth." Whether you are tracking corporate structures, government entities, or complex global networks, our AI-powered **Research Agents** (Finder, Enricher, and Linker) continuously discover and map connections across the global landscape.
+
+
+
+**2. Forensic Refinery & News Intelligence**
+We’ve integrated a consolidated extraction pipeline that processes everything from regulatory filings and white papers to field reports. Combined with real-time news monitoring and automated entity linking, AnnoNest ensures your registry reflects the world as it changes, not weeks later.
+
+**3. Enterprise-Grade Labeling (NestAnnotate)**
+For institutions building their own AI or monitoring systems, our multi-modal suite supports image, video, audio, and linguistic data. By leveraging **AI-Assisted Labeling**, we accelerate workflows while maintaining rigorous quality assurance sampling and audit trails.
+
+### The AnnoNest Difference: Intelligence Verification
+We believe AI should accelerate human judgment, not replace it. Every AI-generated finding in AnnoNest flows through a structured **Verification Workflow**. High-confidence results apply automatically, while lower-confidence signals route to our **Task Cockpit** for human review. This ensures experts remain in the loop for high-stakes decisions.
+
+### Built for Institutional Standards
+AnnoNest isn't just a tool; it's a secure, tenant-first architecture built for the highest levels of data governance.
+* **Strict Isolation:** Every query and storage path is tenant-scoped, ensuring your proprietary data remains yours.
+* **Role-Based Governance:** Separate operational and governance functions with granular permissions.
+* **Auditability:** Every mutation carries a full audit trail, meeting the transparency standards expected by institutional leaders.
+
+### One Source of Truth
+We envision a world where institutional teams spend less time wrestling with tools and more time acting on the intelligence that drives impact. AnnoNest is the operating system that makes this possible—bringing logical precision to the core of global decision-making.`,
+  date: 'Feb 22, 2026',
+  scope: 'AIOps',
+  tags: ['AnnoNest', 'Institutional Intelligence', 'Data OS', 'Entity Discovery'],
+  readTime: '8 min',
+  isFeatured: true,
+  author: {
+    name: 'Ankit Kumar Suman',
+    role: 'Founder & Director',
+    department: 'Leadership & Strategy'
+  }
+},
+
 {
   id: 'br-3',
   title: 'NestHR: Building the Talent Operating System for the AI Era',
